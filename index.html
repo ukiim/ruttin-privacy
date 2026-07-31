@@ -6,14 +6,18 @@
   배포 저장소: https://github.com/ukiim/ruttin-privacy (index.html이 이 파일의 사본)
 
   고칠 때는 이 파일을 고친 뒤 배포 저장소의 index.html로 복사해 push 한다.
-  코드가 하는 일이 바뀌면(네트워크 호출·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
+  코드가 하는 일이 바뀌면(수집 항목·수탁사·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
+
+  1.1 (2026-07-31) — Firebase 인증과 Firestore 동기화가 들어오면서 전면 개정.
+  1.0의 "서버가 없습니다"는 더 이상 사실이 아니다. 이 문서가 약속하는 내용은
+  ios/Runner/PrivacyInfo.xcprivacy, App Store 영양성분표, 실제 코드와 같아야 한다.
 -->
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>루띤 개인정보 처리방침 · Ruttin Privacy Policy</title>
-<meta name="description" content="루띤은 서버가 없습니다. 모든 데이터는 기기에만 저장됩니다.">
+<meta name="description" content="루띤은 계정 없이도 전부 쓸 수 있습니다. 로그인하면 루틴이 기기 사이에서 이어집니다.">
 <style>
   :root {
     --page: #F4F4F2;
@@ -146,9 +150,9 @@
     padding: 1px 9px;
   }
 
-  /* 사업자 정보 — 라벨/값 2열, 좁은 화면에서는 1열로 접힌다 */
+  /* 라벨/값 2열 — 사업자 정보와 국외 이전 표. 좁은 화면에서는 1열로 접힌다 */
   .biz {
-    margin: 0;
+    margin: 0 0 12px;
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 4px 18px;
@@ -183,31 +187,40 @@
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 7월 30일 · 버전 1.0</p>
+      <p class="updated">최종 수정일 2026년 7월 31일 · 버전 1.1</p>
     </header>
 
     <p class="lede">
-      루띤에는 <strong>서버가 없습니다.</strong> 계정도 만들지 않습니다.
-      여러분이 붙인 루틴 스티커, 완료 기록, 기상·취침 시간은 모두
-      <strong>여러분의 기기 안에만</strong> 저장되며 어디로도 전송되지 않습니다.
+      루띤은 <strong>계정 없이도 전부 쓸 수 있습니다.</strong>
+      로그인하지 않으면 아무것도 기기 밖으로 나가지 않습니다.
+      로그인하면 루틴과 설정이 <strong>기기를 바꿔도 이어지도록</strong> 서버에 저장됩니다.
+      광고도, 분석도, 추적도 없습니다.
     </p>
 
     <section>
-      <h2><span class="n">1</span> 수집하지 않는 정보</h2>
-      <p>루띤은 다음을 <span class="none">수집하지 않습니다</span>.</p>
+      <h2><span class="n">1</span> 계정을 만들 때 수집하는 정보</h2>
+      <p>이메일·Google·Apple 중 하나로 로그인하면 다음을 받습니다.</p>
       <ul>
-        <li>이름·이메일·전화번호 등 계정 정보 — 계정 기능 자체가 없습니다</li>
-        <li>위치, 연락처, 사진, 마이크, 카메라</li>
-        <li>광고 식별자(IDFA), 사용 기록, 크래시·분석 데이터</li>
+        <li><strong>이메일 주소</strong> — 계정을 알아보고, 비밀번호 재설정 메일을 보내는 데 씁니다</li>
+        <li><strong>표시 이름</strong> — Google·Apple이 알려준 이름 (알려주지 않으면 받지 않습니다)</li>
+        <li><strong>사용자 식별자</strong> — 로그인할 때 발급되는 임의의 문자열. 여러분의 루틴을 찾는 열쇠입니다</li>
       </ul>
-      <p>앱에 광고 SDK도 분석 SDK도 들어 있지 않습니다. 이용자 추적을 하지 않습니다.</p>
+      <p>
+        비밀번호는 Google의 Firebase Authentication이 직접 처리하며
+        <strong>저희에게는 전달되지 않습니다.</strong> 앱도 비밀번호를 저장하지 않습니다.
+      </p>
+      <p>
+        Apple로 로그인에서 <em>내 이메일 가리기</em>를 고르면, 저희에게는 Apple이 만든
+        전달용 주소(<code>@privaterelay.appleid.com</code>)만 전달됩니다.
+        실제 주소는 알 수 없습니다.
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">2</span> 기기에 저장되는 정보</h2>
+      <h2><span class="n">2</span> 로그인하면 서버에 저장되는 정보</h2>
       <p>
-        다음 정보는 iOS의 앱 전용 저장 공간(UserDefaults)에 저장됩니다.
-        앱 밖으로 나가지 않으며, 개발자도 볼 수 없습니다.
+        로그인한 동안에만, 아래 내용이 여러분 계정에 딸린
+        <strong>문서 하나</strong>(<code>users/사용자 식별자</code>)에 저장됩니다.
       </p>
       <ul>
         <li>루틴 목록 — 이름, 시작 시간, 길이, 아이콘, 색</li>
@@ -216,10 +229,26 @@
         <li>앱에서 직접 입력한 표시 이름과 나이 (선택 사항)</li>
         <li>알림 사용 여부, 언어 설정, 건강 앱 연동 여부</li>
       </ul>
+      <p>
+        같은 내용이 기기 안(UserDefaults)에도 남아, 인터넷이 없어도 앱이 그대로 돌아갑니다.
+        <strong>로그아웃 상태에서는 기기에만 남고 어디로도 전송되지 않습니다.</strong>
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">3</span> 건강 데이터</h2>
+      <h2><span class="n">3</span> 수집하지 않는 정보</h2>
+      <p>루띤은 다음을 <span class="none">수집하지 않습니다</span>.</p>
+      <ul>
+        <li>위치, 연락처, 사진, 마이크, 카메라</li>
+        <li>광고 식별자(IDFA), 사용 기록 — 광고 SDK도 분석 SDK도 넣지 않았습니다</li>
+        <li>건강 앱에서 읽은 수면·걸음 값 (아래 4번)</li>
+        <li>비밀번호</li>
+      </ul>
+      <p>다른 회사의 앱·웹사이트를 가로지르는 이용자 추적을 하지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2><span class="n">4</span> 건강 데이터</h2>
       <p>
         AI 플래너를 쓸 때, 그리고 <strong>여러분이 권한을 허용했을 때만</strong>
         건강 앱에서 다음 두 가지를 <strong>읽습니다</strong>.
@@ -230,8 +259,9 @@
       </ul>
       <p>
         읽은 값은 그 자리에서 추천 루틴의 근거를 계산하는 데만 쓰이고
-        <strong>저장하지도, 전송하지도 않습니다.</strong>
+        <strong>기기에 저장하지도, 서버로 보내지도 않습니다.</strong>
         루띤은 건강 앱에 <span class="none">아무것도 쓰지 않습니다</span>.
+        서버에 올라가는 것은 연동을 켰는지 껐는지, 그 스위치 상태뿐입니다.
       </p>
       <p>
         권한을 허용하지 않아도 AI 플래너를 포함한 모든 기능을 쓸 수 있습니다
@@ -241,34 +271,77 @@
     </section>
 
     <section>
-      <h2><span class="n">4</span> 제3자 제공</h2>
+      <h2><span class="n">5</span> 처리 위탁과 국외 이전</h2>
       <p>
-        <span class="none">없습니다.</span>
-        판매·공유·위탁 어느 것도 하지 않습니다. 애초에 전송되는 데이터가 없습니다.
+        계정과 동기화를 직접 운영하지 않고 Google의 Firebase를 씁니다.
+        1·2번의 정보는 아래와 같이 국외로 이전됩니다.
       </p>
-    </section>
-
-    <section>
-      <h2><span class="n">5</span> 네트워크 통신</h2>
+      <dl class="biz">
+        <dt>이전받는 자</dt><dd>Google LLC</dd>
+        <dt>이용 서비스</dt><dd>Firebase Authentication (계정 인증), Cloud Firestore (루틴 보관·동기화)</dd>
+        <dt>이전 항목</dt><dd>위 1번과 2번의 정보 전부</dd>
+        <dt>이전 국가</dt><dd>미국 등 Google이 운영하는 데이터센터</dd>
+        <dt>이전 시점·방법</dt><dd>로그인·동기화가 일어날 때, 암호화된 통신(TLS)으로</dd>
+        <dt>보유·이용 기간</dt><dd>계정을 삭제할 때까지</dd>
+      </dl>
       <p>
-        루띤은 자체 서버와 통신하지 않습니다. 다만 본문 서체(Noto Sans)를
-        <strong>처음 한 번</strong> Google Fonts에서 내려받습니다. 이때 Google에
-        여러분의 IP 주소가 전달될 수 있습니다. 이 요청에는 루띤이 가진 어떤 정보도
-        담기지 않습니다. 브랜드 서체는 앱에 포함돼 있어 내려받지 않습니다.
+        Firebase 라이브러리는 이와 별개로, 자기 자신이 잘 돌아가는지 알아보기 위한
+        <strong>기술적 진단 정보</strong>(오류 발생 여부, 라이브러리 버전 등)를 Google에
+        보냅니다. 여기에는 여러분이 누구인지, 어떤 루틴을 쓰는지가 들어 있지 않습니다.
+      </p>
+      <p>
+        이 밖에는 <span class="none">아무에게도</span> 판매·공유·제공하지 않습니다.
+        광고나 프로파일링에 쓰지 않습니다.
       </p>
     </section>
 
     <section>
       <h2><span class="n">6</span> 보관과 삭제</h2>
+      <ul>
+        <li><strong>기기 안</strong> — 앱을 삭제하면 함께 사라집니다.
+          앱 안에서는 <em>프로필 &gt; 데이터 초기화</em>로 지울 수 있습니다</li>
+        <li><strong>서버</strong> — <em>프로필 &gt; 계정 삭제</em>를 누르면 서버의 루틴 문서와
+          로그인 계정이 <strong>함께</strong> 지워집니다. 되돌릴 수 없습니다</li>
+        <li><strong>로그아웃</strong>만 하면 서버의 사본은 남습니다.
+          다시 로그인하면 그대로 돌아옵니다</li>
+      </ul>
       <p>
-        모든 데이터는 기기에만 있으므로 <strong>앱을 삭제하면 함께 사라집니다.</strong>
-        앱 안에서는 <em>프로필 &gt; 데이터 초기화</em>로 전체를 지울 수 있습니다.
-        따로 요청하실 것이 없고, 저희가 지울 수 있는 사본도 없습니다.
+        전송 구간은 TLS로 암호화되고, 서버 규칙상
+        <strong>자기 문서가 아니면 누구도 읽거나 쓸 수 없습니다.</strong>
+        저희가 여러분의 루틴을 들여다보지 않습니다.
+        삭제 요청은 즉시 반영되며, 별도의 사본을 만들어 두지 않습니다.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> 아동의 개인정보</h2>
+      <h2><span class="n">7</span> 이용자의 권리</h2>
+      <p>
+        언제든지 열람·정정·삭제·처리정지를 요구할 수 있습니다.
+        대부분은 앱 안에서 바로 됩니다 — 열람과 정정은 <em>프로필</em>과 각 루틴 화면에서,
+        삭제는 <em>프로필 &gt; 계정 삭제</em>로. 그 밖의 요청은
+        <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a>로 보내주시면
+        확인 후 처리하고 결과를 알려드립니다.
+      </p>
+      <p>
+        개인정보 침해로 상담이 필요하면 개인정보침해신고센터(privacy.kisa.or.kr, 국번없이 118),
+        개인정보 분쟁조정위원회(kopico.go.kr, 1833-6972)에 문의하실 수 있습니다.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">8</span> 네트워크 통신</h2>
+      <p>루띤이 인터넷을 쓰는 곳은 두 군데뿐입니다.</p>
+      <ul>
+        <li><strong>Firebase</strong> — 로그인과 동기화.
+          로그인하지 않으면 이 통신은 아예 일어나지 않습니다</li>
+        <li><strong>Google Fonts</strong> — 본문 서체(Noto Sans)를 <strong>처음 한 번</strong>
+          내려받습니다. 이때 Google에 IP 주소가 전달될 수 있고, 이 요청에는 루띤이 가진
+          어떤 정보도 담기지 않습니다. 브랜드 서체는 앱에 포함돼 있어 내려받지 않습니다</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="n">9</span> 아동의 개인정보</h2>
       <p>
         루띤은 만 14세 미만 아동을 대상으로 하지 않으며,
         아동의 개인정보를 알면서 수집하지 않습니다.
@@ -276,7 +349,7 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 방침 변경</h2>
+      <h2><span class="n">10</span> 방침 변경</h2>
       <p>
         내용이 바뀌면 이 페이지를 갱신하고 위의 최종 수정일을 고칩니다.
         수집 항목이 늘어나는 변경은 앱 업데이트 안내에서도 함께 알려드립니다.
@@ -284,7 +357,7 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 사업자 정보 및 문의</h2>
+      <h2><span class="n">11</span> 사업자 정보 및 문의</h2>
       <dl class="biz">
         <dt>상호</dt><dd>(주)퍼스트핍</dd>
         <dt>사업자등록번호</dt><dd>788-87-02526</dd>
@@ -303,31 +376,41 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 30 July 2026 · Version 1.0</p>
+      <p class="updated">Last updated 31 July 2026 · Version 1.1</p>
     </header>
 
     <p class="lede">
-      Ruttin has <strong>no server.</strong> There are no accounts.
-      The routine stickers you place, your completion records and your wake and
-      sleep times stay <strong>on your device only</strong> and are never sent anywhere.
+      You can use <strong>all of Ruttin without an account.</strong>
+      If you don't sign in, nothing leaves your device.
+      If you do sign in, your routines and settings are stored on a server so they
+      <strong>follow you to a new phone</strong>. No ads, no analytics, no tracking.
     </p>
 
     <section>
-      <h2><span class="n">1</span> What we do not collect</h2>
-      <p>Ruttin <span class="none">does not collect</span>:</p>
+      <h2><span class="n">1</span> What we collect when you create an account</h2>
+      <p>When you sign in with email, Google or Apple, we receive:</p>
       <ul>
-        <li>Account details such as your name, email or phone number — there is no account system</li>
-        <li>Location, contacts, photos, microphone or camera</li>
-        <li>Advertising identifiers (IDFA), usage history, crash or analytics data</li>
+        <li><strong>Your email address</strong> — to identify the account and to send password reset mail</li>
+        <li><strong>A display name</strong> — whatever Google or Apple tells us (nothing, if they tell us nothing)</li>
+        <li><strong>A user identifier</strong> — a random string issued at sign-in. It is the key that finds your routines</li>
       </ul>
-      <p>The app contains no advertising SDK and no analytics SDK. We do not track you.</p>
+      <p>
+        Your password is handled directly by Google's Firebase Authentication and
+        <strong>never reaches us.</strong> The app does not store it either.
+      </p>
+      <p>
+        If you choose <em>Hide My Email</em> with Sign in with Apple, all we get is the
+        relay address Apple creates (<code>@privaterelay.appleid.com</code>).
+        We never see your real address.
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">2</span> What is stored on your device</h2>
+      <h2><span class="n">2</span> What is stored on the server once you sign in</h2>
       <p>
-        The following is saved in the app's private storage on iOS (UserDefaults).
-        It never leaves the app, and the developer cannot see it.
+        While you are signed in, the following is kept in
+        <strong>a single document</strong> under your account
+        (<code>users/&lt;your identifier&gt;</code>):
       </p>
       <ul>
         <li>Your routines — name, start time, duration, icon and colour</li>
@@ -336,10 +419,27 @@
         <li>The display name and age you type into the app (both optional)</li>
         <li>Notification toggle, language setting and whether Health is connected</li>
       </ul>
+      <p>
+        The same data also stays on your device (UserDefaults), so the app keeps working
+        offline. <strong>While signed out it stays on the device only and is never sent
+        anywhere.</strong>
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">3</span> Health data</h2>
+      <h2><span class="n">3</span> What we do not collect</h2>
+      <p>Ruttin <span class="none">does not collect</span>:</p>
+      <ul>
+        <li>Location, contacts, photos, microphone or camera</li>
+        <li>Advertising identifiers (IDFA) or usage history — there is no ad SDK and no analytics SDK</li>
+        <li>The sleep and step values read from the Health app (see 4 below)</li>
+        <li>Your password</li>
+      </ul>
+      <p>We do not track you across other companies' apps or websites.</p>
+    </section>
+
+    <section>
+      <h2><span class="n">4</span> Health data</h2>
       <p>
         When you use the AI planner — and <strong>only if you grant permission</strong> —
         Ruttin <strong>reads</strong> two things from the Health app:
@@ -350,8 +450,9 @@
       </ul>
       <p>
         Those values are used on the spot to work out which routines to suggest.
-        They are <strong>never stored and never transmitted.</strong>
+        They are <strong>never saved on the device and never sent to the server.</strong>
         Ruttin <span class="none">writes nothing</span> back to the Health app.
+        The only thing that reaches the server is whether the Health toggle is on or off.
       </p>
       <p>
         You can use every feature, including the AI planner, without granting
@@ -361,37 +462,81 @@
     </section>
 
     <section>
-      <h2><span class="n">4</span> Sharing with third parties</h2>
+      <h2><span class="n">5</span> Processors and international transfer</h2>
       <p>
-        <span class="none">None.</span>
-        Nothing is sold, shared or handed to a processor. There is no transmitted
-        data to share in the first place.
+        We do not run accounts or sync ourselves — we use Google's Firebase.
+        The data in sections 1 and 2 is transferred abroad as follows.
       </p>
-    </section>
-
-    <section>
-      <h2><span class="n">5</span> Network requests</h2>
+      <dl class="biz">
+        <dt>Recipient</dt><dd>Google LLC</dd>
+        <dt>Services used</dt><dd>Firebase Authentication (sign-in), Cloud Firestore (storing and syncing routines)</dd>
+        <dt>Data transferred</dt><dd>Everything listed in sections 1 and 2</dd>
+        <dt>Destination</dt><dd>Google-operated data centres, including in the United States</dd>
+        <dt>When and how</dt><dd>Whenever you sign in or sync, over an encrypted connection (TLS)</dd>
+        <dt>Retention</dt><dd>Until you delete your account</dd>
+      </dl>
       <p>
-        Ruttin does not talk to any server of ours. It does download its body
-        typeface (Noto Sans) from Google Fonts <strong>once, on first use</strong>.
-        Google may see your IP address as part of that request. The request carries
-        none of your Ruttin data. The brand typefaces ship inside the app and are
-        never downloaded.
+        Separately, the Firebase libraries send Google <strong>technical diagnostics</strong>
+        about themselves — whether a call failed, which library version is running, and
+        so on. That data says nothing about who you are or what routines you keep.
+      </p>
+      <p>
+        Beyond that we sell, share or hand your data to <span class="none">no one</span>.
+        It is never used for advertising or profiling.
       </p>
     </section>
 
     <section>
       <h2><span class="n">6</span> Retention and deletion</h2>
+      <ul>
+        <li><strong>On your device</strong> — deleting the app deletes it with the app.
+          Inside the app you can wipe it from <em>Profile &gt; Reset data</em></li>
+        <li><strong>On the server</strong> — <em>Profile &gt; Delete account</em> erases
+          <strong>both</strong> your routine document and your sign-in account.
+          This cannot be undone</li>
+        <li><strong>Signing out</strong> alone leaves the server copy in place.
+          Sign back in and it comes straight back</li>
+      </ul>
       <p>
-        Because everything lives on your device, <strong>deleting the app deletes
-        your data with it.</strong> Inside the app you can wipe everything from
-        <em>Profile &gt; Reset data</em>. There is nothing to request from us and no
-        copy for us to erase.
+        Data is encrypted in transit with TLS, and the server rules mean
+        <strong>nobody can read or write a document that isn't their own.</strong>
+        We do not look at your routines. Deletions take effect immediately and we keep
+        no separate copy.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> Children</h2>
+      <h2><span class="n">7</span> Your rights</h2>
+      <p>
+        You may ask at any time to see, correct, delete or restrict the processing of
+        your data. Most of it you can do in the app — view and correct it in
+        <em>Profile</em> and on each routine, delete it via
+        <em>Profile &gt; Delete account</em>. For anything else, write to
+        <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a>
+        and we will act on it and tell you the outcome.
+      </p>
+      <p>
+        Users in Korea may also contact the Korea Internet &amp; Security Agency's
+        privacy centre (privacy.kisa.or.kr, dial 118) or the Personal Information
+        Dispute Mediation Committee (kopico.go.kr, 1833-6972).
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">8</span> Network requests</h2>
+      <p>Ruttin only ever talks to two places:</p>
+      <ul>
+        <li><strong>Firebase</strong> — sign-in and sync.
+          If you don't sign in, this traffic never happens at all</li>
+        <li><strong>Google Fonts</strong> — the body typeface (Noto Sans) is downloaded
+          <strong>once, on first use</strong>. Google may see your IP address as part of
+          that request; the request carries none of your Ruttin data. The brand
+          typefaces ship inside the app and are never downloaded</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="n">9</span> Children</h2>
       <p>
         Ruttin is not directed at children under 14, and we do not knowingly
         collect personal information from children.
@@ -399,7 +544,7 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> Changes to this policy</h2>
+      <h2><span class="n">10</span> Changes to this policy</h2>
       <p>
         If this policy changes we will update this page and the date above. Any
         change that adds data collection will also be called out in the app's
@@ -408,7 +553,7 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> Company details and contact</h2>
+      <h2><span class="n">11</span> Company details and contact</h2>
       <dl class="biz">
         <dt>Company</dt><dd>FIRSTPIP Inc. ((주)퍼스트핍)</dd>
         <dt>Business registration no.</dt><dd>788-87-02526</dd>
@@ -428,31 +573,40 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年7月30日 · バージョン 1.0</p>
+      <p class="updated">最終更新日 2026年7月31日 · バージョン 1.1</p>
     </header>
 
     <p class="lede">
-      Ruttin に<strong>サーバーはありません。</strong>アカウントも作りません。
-      貼ったルーティンのステッカー、完了の記録、起床・就寝の時刻は
-      すべて<strong>お使いの端末の中だけ</strong>に保存され、どこにも送信されません。
+      Ruttin は<strong>アカウントがなくてもすべての機能を使えます。</strong>
+      ログインしなければ、データが端末の外に出ることはありません。
+      ログインすると、ルーティンと設定が<strong>機種を変えても引き継がれるように</strong>
+      サーバーに保存されます。広告も、解析も、追跡もありません。
     </p>
 
     <section>
-      <h2><span class="n">1</span> 取得しない情報</h2>
-      <p>Ruttin は次の情報を<span class="none">取得しません</span>。</p>
+      <h2><span class="n">1</span> アカウント作成時に取得する情報</h2>
+      <p>メール・Google・Apple のいずれかでログインすると、次の情報を受け取ります。</p>
       <ul>
-        <li>氏名・メールアドレス・電話番号などのアカウント情報 — アカウント機能自体がありません</li>
-        <li>位置情報、連絡先、写真、マイク、カメラ</li>
-        <li>広告識別子（IDFA）、利用履歴、クラッシュ・解析データ</li>
+        <li><strong>メールアドレス</strong> — アカウントの識別と、パスワード再設定メールの送信に使います</li>
+        <li><strong>表示名</strong> — Google・Apple から提供された名前（提供されない場合は取得しません）</li>
+        <li><strong>ユーザー識別子</strong> — ログイン時に発行されるランダムな文字列。あなたのルーティンを探す鍵です</li>
       </ul>
-      <p>広告 SDK も解析 SDK も組み込んでいません。ユーザーの追跡は行いません。</p>
+      <p>
+        パスワードは Google の Firebase Authentication が直接扱い、
+        <strong>当方には渡りません。</strong>アプリもパスワードを保存しません。
+      </p>
+      <p>
+        「Appleでサインイン」で<em>メールを非公開</em>を選ぶと、当方に届くのは Apple が
+        発行する転送用アドレス（<code>@privaterelay.appleid.com</code>）だけです。
+        実際のアドレスは分かりません。
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">2</span> 端末に保存される情報</h2>
+      <h2><span class="n">2</span> ログイン中にサーバーへ保存される情報</h2>
       <p>
-        次の情報は iOS のアプリ専用領域（UserDefaults）に保存されます。
-        アプリの外に出ることはなく、開発者も見ることはできません。
+        ログインしている間だけ、次の内容がアカウントに紐づく
+        <strong>1 つのドキュメント</strong>（<code>users/ユーザー識別子</code>）に保存されます。
       </p>
       <ul>
         <li>ルーティンの一覧 — 名前、開始時刻、長さ、アイコン、色</li>
@@ -461,10 +615,26 @@
         <li>アプリに入力した表示名と年齢（任意）</li>
         <li>通知の設定、言語の設定、ヘルスケア連携の有無</li>
       </ul>
+      <p>
+        同じ内容は端末内（UserDefaults）にも残るので、オフラインでもそのまま使えます。
+        <strong>ログアウト中は端末の中だけに残り、どこにも送信されません。</strong>
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">3</span> ヘルスケアのデータ</h2>
+      <h2><span class="n">3</span> 取得しない情報</h2>
+      <p>Ruttin は次の情報を<span class="none">取得しません</span>。</p>
+      <ul>
+        <li>位置情報、連絡先、写真、マイク、カメラ</li>
+        <li>広告識別子（IDFA）、利用履歴 — 広告 SDK も解析 SDK も組み込んでいません</li>
+        <li>ヘルスケアから読み取った睡眠・歩数の値（下の 4 番）</li>
+        <li>パスワード</li>
+      </ul>
+      <p>他社のアプリやウェブサイトをまたぐ追跡は行いません。</p>
+    </section>
+
+    <section>
+      <h2><span class="n">4</span> ヘルスケアのデータ</h2>
       <p>
         AI プランナーを使うとき、<strong>かつ許可をいただいた場合にのみ</strong>、
         ヘルスケアから次の 2 つを<strong>読み取ります</strong>。
@@ -475,8 +645,9 @@
       </ul>
       <p>
         読み取った値はその場で提案の根拠を計算するためだけに使い、
-        <strong>保存も送信もしません。</strong>
+        <strong>端末に保存することも、サーバーへ送ることもありません。</strong>
         Ruttin がヘルスケアに<span class="none">書き込むことはありません</span>。
+        サーバーに送られるのは、連携をオンにしているかどうかの状態だけです。
       </p>
       <p>
         許可しなくても AI プランナーを含むすべての機能を利用できます
@@ -487,34 +658,80 @@
     </section>
 
     <section>
-      <h2><span class="n">4</span> 第三者提供</h2>
+      <h2><span class="n">5</span> 委託と国外移転</h2>
       <p>
-        <span class="none">ありません。</span>
-        販売・共有・委託のいずれも行いません。そもそも送信されるデータがありません。
+        アカウントと同期は自社で運用せず、Google の Firebase を利用しています。
+        1・2 番の情報は次のとおり国外へ移転されます。
+      </p>
+      <dl class="biz">
+        <dt>移転先</dt><dd>Google LLC</dd>
+        <dt>利用サービス</dt><dd>Firebase Authentication（認証）、Cloud Firestore（ルーティンの保存・同期）</dd>
+        <dt>移転する情報</dt><dd>上の 1 番と 2 番のすべて</dd>
+        <dt>移転先の国</dt><dd>米国ほか、Google が運営するデータセンター</dd>
+        <dt>時期と方法</dt><dd>ログイン・同期のたびに、暗号化された通信（TLS）で</dd>
+        <dt>保有期間</dt><dd>アカウントを削除するまで</dd>
+      </dl>
+      <p>
+        これとは別に、Firebase のライブラリは自身が正常に動作しているかを知るための
+        <strong>技術的な診断情報</strong>（エラーの有無、ライブラリのバージョンなど）を
+        Google に送信します。そこにあなたが誰か、どんなルーティンを使っているかは
+        含まれません。
+      </p>
+      <p>
+        これ以外に<span class="none">誰にも</span>販売・共有・提供しません。
+        広告やプロファイリングには使いません。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">5</span> 通信について</h2>
+      <h2><span class="n">6</span> 保存と削除</h2>
+      <ul>
+        <li><strong>端末内</strong> — アプリを削除すれば一緒に消えます。
+          アプリ内では<em>プロフィール &gt; データをリセット</em>で消去できます</li>
+        <li><strong>サーバー</strong> — <em>プロフィール &gt; アカウント削除</em>を押すと、
+          ルーティンのドキュメントとログインアカウントが<strong>まとめて</strong>削除されます。
+          元に戻すことはできません</li>
+        <li><strong>ログアウト</strong>だけではサーバー上の控えは残ります。
+          再度ログインすればそのまま戻ります</li>
+      </ul>
       <p>
-        Ruttin は自社サーバーと通信しません。ただし本文用の書体（Noto Sans）を
-        <strong>初回に一度だけ</strong> Google Fonts から取得します。その際、
-        Google に IP アドレスが伝わる可能性があります。この通信に Ruttin の
-        データは一切含まれません。ブランド書体はアプリに同梱しており、取得しません。
+        通信は TLS で暗号化され、サーバーのルール上
+        <strong>自分のドキュメント以外は誰も読み書きできません。</strong>
+        当方があなたのルーティンを覗くことはありません。
+        削除はすぐに反映され、別途の控えも保管しません。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">6</span> 保存期間と削除</h2>
+      <h2><span class="n">7</span> 利用者の権利</h2>
       <p>
-        データは端末の中だけにあるため、<strong>アプリを削除すれば一緒に消えます。</strong>
-        アプリ内では<em>プロフィール &gt; データをリセット</em>ですべて消去できます。
-        こちらに削除を請求する必要はなく、当方に控えもありません。
+        いつでも開示・訂正・削除・処理の停止を求めることができます。
+        ほとんどはアプリ内で完結します — 確認と訂正は<em>プロフィール</em>と各ルーティンの画面で、
+        削除は<em>プロフィール &gt; アカウント削除</em>で。それ以外のご要望は
+        <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a>
+        までお送りいただければ、確認のうえ対応し、結果をお知らせします。
+      </p>
+      <p>
+        韓国国内の利用者は、個人情報侵害申告センター（privacy.kisa.or.kr、局番なし 118）や
+        個人情報紛争調停委員会（kopico.go.kr、1833-6972）にも相談できます。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> お子さまの個人情報</h2>
+      <h2><span class="n">8</span> 通信について</h2>
+      <p>Ruttin がインターネットを使うのは次の 2 か所だけです。</p>
+      <ul>
+        <li><strong>Firebase</strong> — ログインと同期。
+          ログインしなければ、この通信は一切発生しません</li>
+        <li><strong>Google Fonts</strong> — 本文用の書体（Noto Sans）を
+          <strong>初回に一度だけ</strong>取得します。その際 Google に IP アドレスが
+          伝わる可能性がありますが、この通信に Ruttin のデータは一切含まれません。
+          ブランド書体はアプリに同梱しており、取得しません</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="n">9</span> お子さまの個人情報</h2>
       <p>
         Ruttin は 14 歳未満のお子さまを対象としておらず、
         お子さまの個人情報を意図して取得することはありません。
@@ -522,7 +739,7 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 本ポリシーの変更</h2>
+      <h2><span class="n">10</span> 本ポリシーの変更</h2>
       <p>
         内容を変更した場合は、このページと上部の最終更新日を改めます。
         取得する情報が増える変更については、アップデートの案内でもお知らせします。
@@ -530,7 +747,7 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 事業者情報・お問い合わせ</h2>
+      <h2><span class="n">11</span> 事業者情報・お問い合わせ</h2>
       <dl class="biz">
         <dt>商号</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>事業者登録番号</dt><dd>788-87-02526</dd>
@@ -550,31 +767,39 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年7月30日 · 版本 1.0</p>
+      <p class="updated">最后更新 2026年7月31日 · 版本 1.1</p>
     </header>
 
     <p class="lede">
-      Ruttin <strong>没有服务器</strong>，也不需要注册账号。
-      你贴上的例行贴纸、完成记录、起床与就寝时间，
-      都<strong>只保存在你的设备里</strong>，不会发送到任何地方。
+      不注册账号也能<strong>使用 Ruttin 的全部功能。</strong>
+      不登录时，数据不会离开你的设备。
+      登录后，例行与设置会保存到服务器，<strong>换手机也能接着用。</strong>
+      没有广告，没有分析，也不做追踪。
     </p>
 
     <section>
-      <h2><span class="n">1</span> 我们不收集的信息</h2>
-      <p>Ruttin <span class="none">不收集</span>以下信息：</p>
+      <h2><span class="n">1</span> 创建账号时收集的信息</h2>
+      <p>使用邮箱、Google 或 Apple 登录时，我们会收到：</p>
       <ul>
-        <li>姓名、邮箱、电话等账号信息 — 本应用没有账号系统</li>
-        <li>位置、通讯录、照片、麦克风、摄像头</li>
-        <li>广告标识符（IDFA）、使用记录、崩溃与分析数据</li>
+        <li><strong>邮箱地址</strong> — 用于识别账号、发送重置密码的邮件</li>
+        <li><strong>昵称</strong> — Google 或 Apple 提供的名称（未提供则不收集）</li>
+        <li><strong>用户标识符</strong> — 登录时生成的随机字符串，是找到你例行数据的钥匙</li>
       </ul>
-      <p>应用中没有任何广告 SDK 或分析 SDK，也不会追踪用户。</p>
+      <p>
+        密码由 Google 的 Firebase Authentication 直接处理，
+        <strong>不会传给我们。</strong>应用本身也不保存密码。
+      </p>
+      <p>
+        若在「通过 Apple 登录」中选择<em>隐藏邮件地址</em>，我们只会收到 Apple 生成的
+        中转地址（<code>@privaterelay.appleid.com</code>），无法得知你的真实地址。
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">2</span> 保存在设备上的信息</h2>
+      <h2><span class="n">2</span> 登录后保存到服务器的信息</h2>
       <p>
-        以下信息保存在 iOS 的应用专属存储（UserDefaults）中，
-        不会离开应用，开发者也无法查看。
+        仅在登录期间，以下内容会保存在你账号下的
+        <strong>单个文档</strong>（<code>users/用户标识符</code>）中：
       </p>
       <ul>
         <li>例行列表 — 名称、开始时间、时长、图标、颜色</li>
@@ -583,10 +808,26 @@
         <li>你在应用中填写的昵称与年龄（均为选填）</li>
         <li>通知开关、语言设置、是否连接「健康」</li>
       </ul>
+      <p>
+        同样的内容也保留在设备上（UserDefaults），因此离线时应用照常可用。
+        <strong>退出登录后，数据只留在设备里，不会发送到任何地方。</strong>
+      </p>
     </section>
 
     <section>
-      <h2><span class="n">3</span> 健康数据</h2>
+      <h2><span class="n">3</span> 我们不收集的信息</h2>
+      <p>Ruttin <span class="none">不收集</span>以下信息：</p>
+      <ul>
+        <li>位置、通讯录、照片、麦克风、摄像头</li>
+        <li>广告标识符（IDFA）、使用记录 — 应用中没有广告 SDK，也没有分析 SDK</li>
+        <li>从「健康」读取到的睡眠与步数数值（见下文第 4 条）</li>
+        <li>密码</li>
+      </ul>
+      <p>我们不会跨其他公司的应用或网站追踪用户。</p>
+    </section>
+
+    <section>
+      <h2><span class="n">4</span> 健康数据</h2>
       <p>
         仅在你使用 AI 规划师、<strong>并且授予权限时</strong>，
         Ruttin 才会从「健康」<strong>读取</strong>两项数据：
@@ -597,8 +838,9 @@
       </ul>
       <p>
         读取到的数值仅当场用于计算推荐依据，
-        <strong>既不保存也不传输。</strong>
+        <strong>既不保存在设备上，也不上传到服务器。</strong>
         Ruttin <span class="none">不会向「健康」写入任何内容</span>。
+        上传到服务器的只有连接开关的开／关状态。
       </p>
       <p>
         即使不授权，你依然可以使用包括 AI 规划师在内的全部功能（此时用示例数值计算）。
@@ -607,34 +849,76 @@
     </section>
 
     <section>
-      <h2><span class="n">4</span> 向第三方提供</h2>
+      <h2><span class="n">5</span> 委托处理与跨境传输</h2>
       <p>
-        <span class="none">没有。</span>
-        我们不出售、不共享、不委托处理，本来也没有任何数据被传输出去。
+        我们不自行运营账号与同步服务，而是使用 Google 的 Firebase。
+        第 1、2 条的信息按下列方式传输至境外。
       </p>
-    </section>
-
-    <section>
-      <h2><span class="n">5</span> 网络请求</h2>
+      <dl class="biz">
+        <dt>接收方</dt><dd>Google LLC</dd>
+        <dt>所用服务</dt><dd>Firebase Authentication（身份验证）、Cloud Firestore（例行数据的保存与同步）</dd>
+        <dt>传输内容</dt><dd>上述第 1 条与第 2 条的全部信息</dd>
+        <dt>接收国家</dt><dd>美国等 Google 运营的数据中心</dd>
+        <dt>时间与方式</dt><dd>在登录与同步时，通过加密连接（TLS）传输</dd>
+        <dt>保存期限</dt><dd>直至你删除账号</dd>
+      </dl>
       <p>
-        Ruttin 不与我们的服务器通信。但正文字体（Noto Sans）会在
-        <strong>首次使用时下载一次</strong>，来源为 Google Fonts。
-        该请求可能让 Google 获知你的 IP 地址，但不会包含任何 Ruttin 的数据。
-        品牌字体已随应用打包，不会下载。
+        此外，Firebase 库还会向 Google 发送关于其自身运行状况的
+        <strong>技术诊断信息</strong>（是否发生错误、库的版本等）。
+        这些信息不包含你的身份，也不包含你的例行内容。
+      </p>
+      <p>
+        除此之外，我们<span class="none">不向任何人</span>出售、共享或提供你的数据，
+        也不用于广告或用户画像。
       </p>
     </section>
 
     <section>
       <h2><span class="n">6</span> 保存与删除</h2>
+      <ul>
+        <li><strong>设备上</strong> — 删除应用即一并删除。
+          在应用内可通过<em>个人资料 &gt; 重置数据</em>清空</li>
+        <li><strong>服务器上</strong> — 点击<em>个人资料 &gt; 删除账号</em>，
+          会<strong>同时</strong>删除服务器上的例行文档与登录账号，且无法恢复</li>
+        <li>仅<strong>退出登录</strong>时，服务器上的副本仍然保留，
+          重新登录即可恢复</li>
+      </ul>
       <p>
-        所有数据都只在你的设备上，因此<strong>删除应用即删除数据。</strong>
-        在应用内可通过<em>个人资料 &gt; 重置数据</em>清空全部内容。
-        你无需向我们提出请求，我们也没有任何副本可供删除。
+        传输过程使用 TLS 加密，且服务器规则规定
+        <strong>任何人都无法读写不属于自己的文档。</strong>
+        我们不会查看你的例行内容。删除请求立即生效，我们也不另存副本。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> 儿童个人信息</h2>
+      <h2><span class="n">7</span> 用户的权利</h2>
+      <p>
+        你可以随时要求查阅、更正、删除个人信息或限制其处理。
+        大多数操作在应用内即可完成 — 查阅与更正见<em>个人资料</em>及各例行页面，
+        删除见<em>个人资料 &gt; 删除账号</em>。其他请求请发送至
+        <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a>，
+        我们核实后处理并告知结果。
+      </p>
+      <p>
+        韩国境内用户还可联系个人信息侵权举报中心（privacy.kisa.or.kr，直拨 118）
+        或个人信息纠纷调解委员会（kopico.go.kr，1833-6972）。
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">8</span> 网络请求</h2>
+      <p>Ruttin 只会与两个地方通信：</p>
+      <ul>
+        <li><strong>Firebase</strong> — 登录与同步。
+          不登录时，完全不会产生这类通信</li>
+        <li><strong>Google Fonts</strong> — 正文字体（Noto Sans）会在
+          <strong>首次使用时下载一次</strong>。该请求可能让 Google 获知你的 IP 地址，
+          但不会包含任何 Ruttin 的数据。品牌字体已随应用打包，不会下载</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="n">9</span> 儿童个人信息</h2>
       <p>
         Ruttin 并非面向 14 周岁以下儿童，
         我们也不会在知情的情况下收集儿童的个人信息。
@@ -642,7 +926,7 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 政策变更</h2>
+      <h2><span class="n">10</span> 政策变更</h2>
       <p>
         如有变更，我们会更新本页面及上方的最后更新日期。
         若变更涉及新增收集的信息，也会在应用更新说明中一并告知。
@@ -650,7 +934,7 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 经营者信息与联系方式</h2>
+      <h2><span class="n">11</span> 经营者信息与联系方式</h2>
       <dl class="biz">
         <dt>公司名称</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>营业执照号</dt><dd>788-87-02526</dd>
