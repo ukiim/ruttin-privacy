@@ -8,6 +8,10 @@
   고칠 때는 이 파일을 고친 뒤 배포 저장소의 index.html로 복사해 push 한다.
   코드가 하는 일이 바뀌면(수집 항목·수탁사·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
 
+  1.2 (2026-08-06) — 점진 시작 온보딩. 완료 이력에 60일 보관 한도를 밝히고,
+  진도 상태(시작한 날, 지금까지 열린 루틴 수)를 저장 항목에 더했다. 완료 이력
+  자체는 1.1이 이미 적고 있었다 — 새로 저장하기 시작한 것은 진도 쪽뿐이다.
+
   1.1 (2026-07-31) — Firebase 인증과 Firestore 동기화가 들어오면서 전면 개정.
   1.0은 서버가 없다는 전제로 쓰였고 그 전제가 깨졌다. 이 문서가 약속하는 내용은
   ios/Runner/PrivacyInfo.xcprivacy, App Store 영양성분표, 실제 코드와 같아야 한다.
@@ -187,7 +191,7 @@
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 7월 31일 · 버전 1.1</p>
+      <p class="updated">최종 수정일 2026년 8월 6일 · 버전 1.2</p>
     </header>
 
     <p class="lede">
@@ -224,7 +228,8 @@
       </p>
       <ul>
         <li>루틴 목록 — 이름, 시작 시간, 길이, 아이콘, 색</li>
-        <li>완료한 루틴과 그 날짜</li>
+        <li>완료한 루틴과 그 날짜 (최근 60일)</li>
+        <li>루틴을 시작한 날과 지금까지 열린 루틴 수</li>
         <li>기상 시간, 취침 시간, 선택한 목표</li>
         <li>앱에서 직접 입력한 표시 이름과 나이 (선택 사항)</li>
         <li>알림 사용 여부, 언어 설정, 건강 앱 연동 여부</li>
@@ -376,7 +381,7 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 31 July 2026 · Version 1.1</p>
+      <p class="updated">Last updated 6 August 2026 · Version 1.2</p>
     </header>
 
     <p class="lede">
@@ -414,7 +419,8 @@
       </p>
       <ul>
         <li>Your routines — name, start time, duration, icon and colour</li>
-        <li>Which routines you completed, and on what date</li>
+        <li>Which routines you completed, and on what date (last 60 days)</li>
+        <li>The day you started and how many routines have opened so far</li>
         <li>Your wake time, sleep time and chosen goal</li>
         <li>The display name and age you type into the app (both optional)</li>
         <li>Notification toggle, language setting and whether Health is connected</li>
@@ -573,7 +579,7 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年7月31日 · バージョン 1.1</p>
+      <p class="updated">最終更新日 2026年8月6日 · バージョン 1.2</p>
     </header>
 
     <p class="lede">
@@ -610,7 +616,8 @@
       </p>
       <ul>
         <li>ルーティンの一覧 — 名前、開始時刻、長さ、アイコン、色</li>
-        <li>完了したルーティンとその日付</li>
+        <li>完了したルーティンとその日付（直近 60 日分）</li>
+        <li>ルーティンを始めた日と、これまでに開いたルーティンの数</li>
         <li>起床時刻、就寝時刻、選んだ目標</li>
         <li>アプリに入力した表示名と年齢（任意）</li>
         <li>通知の設定、言語の設定、ヘルスケア連携の有無</li>
@@ -767,7 +774,7 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年7月31日 · 版本 1.1</p>
+      <p class="updated">最后更新 2026年8月6日 · 版本 1.2</p>
     </header>
 
     <p class="lede">
@@ -803,7 +810,8 @@
       </p>
       <ul>
         <li>例行列表 — 名称、开始时间、时长、图标、颜色</li>
-        <li>已完成的例行及其日期</li>
+        <li>已完成的例行及其日期（最近 60 天）</li>
+        <li>开始使用例行的日期，以及目前已解锁的例行数量</li>
         <li>起床时间、就寝时间、所选目标</li>
         <li>你在应用中填写的昵称与年龄（均为选填）</li>
         <li>通知开关、语言设置、是否连接「健康」</li>
