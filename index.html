@@ -8,6 +8,11 @@
   고칠 때는 이 파일을 고친 뒤 배포 저장소의 index.html로 복사해 push 한다.
   코드가 하는 일이 바뀌면(수집 항목·수탁사·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
 
+  1.3 (2026-08-20) — AI 루틴 플래너가 NVIDIA AI API를 호출하게 되면서 5절을 신설하고
+  이후 절 번호를 하나씩 밀었다. 건강 데이터 절(4)에 "예외" 문단을 더했다 —
+  사용자가 직접 켠 경우에만 수면·걸음이 NVIDIA로 나간다. API 키는 기기
+  키체인에만 두고 계정 동기화에 넣지 않는다.
+
   1.2 (2026-08-06) — 점진 시작 온보딩. 완료 이력에 60일 보관 한도를 밝히고,
   진도 상태(시작한 날, 지금까지 열린 루틴 수)를 저장 항목에 더했다. 완료 이력
   자체는 1.1이 이미 적고 있었다 — 새로 저장하기 시작한 것은 진도 쪽뿐이다.
@@ -191,12 +196,12 @@
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 8월 6일 · 버전 1.2</p>
+      <p class="updated">최종 수정일 2026년 8월 20일 · 버전 1.3</p>
     </header>
 
     <p class="lede">
       루띤은 <strong>계정 없이도 전부 쓸 수 있습니다.</strong>
-      로그인하지 않으면 아무것도 기기 밖으로 나가지 않습니다.
+      로그인하지 않고 AI 플래너를 쓰지 않으면, 아무것도 기기 밖으로 나가지 않습니다.
       로그인하면 루틴과 설정이 <strong>기기를 바꿔도 이어지도록</strong> 서버에 저장됩니다.
       광고도, 분석도, 추적도 없습니다.
     </p>
@@ -264,9 +269,15 @@
       </ul>
       <p>
         읽은 값은 그 자리에서 추천 루틴의 근거를 계산하는 데만 쓰이고
-        <strong>기기에 저장하지도, 서버로 보내지도 않습니다.</strong>
+        <strong>기기에 저장하지도, 저희 서버로 보내지도 않습니다.</strong>
         루띤은 건강 앱에 <span class="none">아무것도 쓰지 않습니다</span>.
         서버에 올라가는 것은 연동을 켰는지 껐는지, 그 스위치 상태뿐입니다.
+      </p>
+      <p>
+        <strong>한 가지 예외가 있습니다.</strong> 아래 5번의 AI 루틴 플래너에서
+        <em>수면·걸음 데이터도 함께 보내기</em>를 직접 켜면, 그때만 평균 수면 시간과
+        평균 걸음 수가 NVIDIA로 전송됩니다. 이 스위치는 <strong>기본이 꺼짐</strong>이고
+        기기마다 따로 켜야 합니다. 켜지 않으면 건강 데이터는 한 글자도 나가지 않습니다.
       </p>
       <p>
         권한을 허용하지 않아도 AI 플래너를 포함한 모든 기능을 쓸 수 있습니다
@@ -276,7 +287,47 @@
     </section>
 
     <section>
-      <h2><span class="n">5</span> 처리 위탁과 국외 이전</h2>
+      <h2><span class="n">5</span> AI 루틴 플래너</h2>
+      <p>
+        AI 루틴 플래너는 <strong>여러분이 직접 NVIDIA API 키를 넣었을 때만</strong>
+        동작합니다. 키가 없으면 앱에 들어 있는 고정 추천으로 대신하며, 이때는
+        <strong>아무 통신도 일어나지 않습니다</strong>.
+      </p>
+      <p>키를 넣고 플래너를 실행하면 다음이 NVIDIA로 전송됩니다.</p>
+      <ul>
+        <li>선택한 목표 (예: 미라클 모닝)</li>
+        <li>기상 시간과 취침 시간</li>
+        <li>앱 언어 설정</li>
+        <li>이미 만들어 둔 루틴의 <strong>이름</strong> — 같은 것을 또 제안하지 않으려는
+          용도입니다. 시각과 완료 이력은 보내지 않습니다</li>
+        <li><em>수면·걸음 데이터도 함께 보내기</em>를 켠 경우에만, 평균 수면 시간과 평균 걸음 수</li>
+      </ul>
+      <p>
+        이름·이메일·사용자 식별자·위치는 <span class="none">보내지 않습니다</span>.
+        NVIDIA는 여러분이 누구인지 알 수 없습니다.
+      </p>
+      <p>
+        <strong>API 키는 이 기기의 보안 저장소(iOS 키체인)에만 저장됩니다.</strong>
+        저희 서버로 올라가지 않고, 계정 동기화에도 들어가지 않습니다. 기기를 바꾸면
+        다시 넣어야 합니다. <em>프로필 &gt; AI 키 &gt; 키 지우기</em>로 언제든 지울 수 있습니다.
+      </p>
+      <dl class="biz">
+        <dt>이전받는 자</dt><dd>NVIDIA Corporation</dd>
+        <dt>이용 서비스</dt><dd>NVIDIA AI API (루틴 제안 생성)</dd>
+        <dt>이전 항목</dt><dd>위 목록의 내용</dd>
+        <dt>이전 국가</dt><dd>미국 등 NVIDIA가 운영하는 데이터센터</dd>
+        <dt>이전 시점·방법</dt><dd>여러분이 AI 플래너를 실행할 때, 암호화된 통신(TLS)으로</dd>
+        <dt>보유·이용 기간</dt><dd>NVIDIA의 방침에 따릅니다. 저희는 이 요청의 내용을 저장하지 않습니다</dd>
+      </dl>
+      <p>
+        요청은 <strong>여러분의 NVIDIA 개발자 계정의 무료 사용량</strong>에서 차감되며,
+        사용량은 NVIDIA에서 직접 확인할 수 있습니다. 전송된 내용을 NVIDIA가 어떻게 다루는지는
+        <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA 개인정보 보호 정책</a>을 따릅니다.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">6</span> 처리 위탁과 국외 이전</h2>
       <p>
         계정과 동기화를 직접 운영하지 않고 Google의 Firebase를 씁니다.
         1·2번의 정보는 아래와 같이 국외로 이전됩니다.
@@ -301,7 +352,7 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 보관과 삭제</h2>
+      <h2><span class="n">7</span> 보관과 삭제</h2>
       <ul>
         <li><strong>기기 안</strong> — 앱을 삭제하면 함께 사라집니다.
           앱 안에서는 <em>프로필 &gt; 데이터 초기화</em>로 지울 수 있습니다</li>
@@ -319,7 +370,7 @@
     </section>
 
     <section>
-      <h2><span class="n">7</span> 이용자의 권리</h2>
+      <h2><span class="n">8</span> 이용자의 권리</h2>
       <p>
         언제든지 열람·정정·삭제·처리정지를 요구할 수 있습니다.
         대부분은 앱 안에서 바로 됩니다 — 열람과 정정은 <em>프로필</em>과 각 루틴 화면에서,
@@ -334,19 +385,22 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 네트워크 통신</h2>
-      <p>루띤이 인터넷을 쓰는 곳은 두 군데뿐입니다.</p>
+      <h2><span class="n">9</span> 네트워크 통신</h2>
+      <p>루띤이 인터넷을 쓰는 곳은 세 군데뿐입니다.</p>
       <ul>
         <li><strong>Firebase</strong> — 로그인과 동기화.
           로그인하지 않으면 이 통신은 아예 일어나지 않습니다</li>
         <li><strong>Google Fonts</strong> — 본문 서체(Noto Sans)를 <strong>처음 한 번</strong>
           내려받습니다. 이때 Google에 IP 주소가 전달될 수 있고, 이 요청에는 루띤이 가진
           어떤 정보도 담기지 않습니다. 브랜드 서체는 앱에 포함돼 있어 내려받지 않습니다</li>
+        <li><strong>NVIDIA</strong> — AI 루틴 플래너(위 5번).
+          <strong>여러분이 API 키를 넣고 플래너를 실행할 때만</strong> 통신합니다.
+          키가 없으면 이 통신은 아예 일어나지 않습니다</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="n">9</span> 아동의 개인정보</h2>
+      <h2><span class="n">10</span> 아동의 개인정보</h2>
       <p>
         루띤은 만 14세 미만 아동을 대상으로 하지 않으며,
         아동의 개인정보를 알면서 수집하지 않습니다.
@@ -354,7 +408,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> 방침 변경</h2>
+      <h2><span class="n">11</span> 방침 변경</h2>
       <p>
         내용이 바뀌면 이 페이지를 갱신하고 위의 최종 수정일을 고칩니다.
         수집 항목이 늘어나는 변경은 앱 업데이트 안내에서도 함께 알려드립니다.
@@ -362,7 +416,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 사업자 정보 및 문의</h2>
+      <h2><span class="n">12</span> 사업자 정보 및 문의</h2>
       <dl class="biz">
         <dt>상호</dt><dd>(주)퍼스트핍</dd>
         <dt>사업자등록번호</dt><dd>788-87-02526</dd>
@@ -381,12 +435,12 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 6 August 2026 · Version 1.2</p>
+      <p class="updated">Last updated 20 August 2026 · Version 1.3</p>
     </header>
 
     <p class="lede">
       You can use <strong>all of Ruttin without an account.</strong>
-      If you don't sign in, nothing leaves your device.
+      If you don't sign in and don't use the AI planner, nothing leaves your device.
       If you do sign in, your routines and settings are stored on a server so they
       <strong>follow you to a new phone</strong>. No ads, no analytics, no tracking.
     </p>
@@ -456,9 +510,16 @@
       </ul>
       <p>
         Those values are used on the spot to work out which routines to suggest.
-        They are <strong>never saved on the device and never sent to the server.</strong>
+        They are <strong>never saved on the device and never sent to our servers.</strong>
         Ruttin <span class="none">writes nothing</span> back to the Health app.
         The only thing that reaches the server is whether the Health toggle is on or off.
+      </p>
+      <p>
+        <strong>There is one exception.</strong> If you turn on
+        <em>Also send sleep and step data</em> in the AI routine planner (section 5),
+        your average sleep minutes and average daily steps are sent to NVIDIA —
+        and only then. That switch is <strong>off by default</strong> and has to be
+        turned on separately on every device. With it off, no health data leaves the phone.
       </p>
       <p>
         You can use every feature, including the AI planner, without granting
@@ -468,7 +529,49 @@
     </section>
 
     <section>
-      <h2><span class="n">5</span> Processors and international transfer</h2>
+      <h2><span class="n">5</span> AI routine planner</h2>
+      <p>
+        The AI routine planner only works if <strong>you add your own free NVIDIA API key</strong>.
+        Without a key the app falls back to its built-in suggestions, and
+        <strong>no request is made at all</strong>.
+      </p>
+      <p>With a key in place, running the planner sends the following to NVIDIA:</p>
+      <ul>
+        <li>The goal you picked (for example, Miracle morning)</li>
+        <li>Your wake time and bedtime</li>
+        <li>Your app language</li>
+        <li>The <strong>names</strong> of routines you already have — so it doesn't suggest
+          the same ones again. Times and completion history are not sent</li>
+        <li>Only if you turned on <em>Also send sleep and step data</em>: your average
+          sleep minutes and average daily steps</li>
+      </ul>
+      <p>
+        Your name, email, user identifier and location are
+        <span class="none">not sent</span>. NVIDIA cannot tell who you are.
+      </p>
+      <p>
+        <strong>The API key is stored only in this device's secure storage (the iOS Keychain).</strong>
+        It never reaches our servers and is not part of account sync. Switching phones means
+        entering it again. You can remove it any time from
+        <em>Profile &gt; AI key &gt; Remove key</em>.
+      </p>
+      <dl class="biz">
+        <dt>Recipient</dt><dd>NVIDIA Corporation</dd>
+        <dt>Service</dt><dd>NVIDIA AI API (generating routine suggestions)</dd>
+        <dt>Data transferred</dt><dd>The items listed above</dd>
+        <dt>Country</dt><dd>Data centres operated by NVIDIA, including the United States</dd>
+        <dt>When and how</dt><dd>When you run the AI planner, over an encrypted connection (TLS)</dd>
+        <dt>Retention</dt><dd>Per NVIDIA's own policy. We do not store the contents of these requests</dd>
+      </dl>
+      <p>
+        Requests draw on <strong>the free quota of your own NVIDIA developer account</strong>,
+        and you can see usage there directly. How NVIDIA handles what is sent is governed by the
+        <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA privacy policy</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">6</span> Processors and international transfer</h2>
       <p>
         We do not run accounts or sync ourselves — we use Google's Firebase.
         The data in sections 1 and 2 is transferred abroad as follows.
@@ -493,7 +596,7 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> Retention and deletion</h2>
+      <h2><span class="n">7</span> Retention and deletion</h2>
       <ul>
         <li><strong>On your device</strong> — deleting the app deletes it with the app.
           Inside the app you can wipe it from <em>Profile &gt; Reset data</em></li>
@@ -512,7 +615,7 @@
     </section>
 
     <section>
-      <h2><span class="n">7</span> Your rights</h2>
+      <h2><span class="n">8</span> Your rights</h2>
       <p>
         You may ask at any time to see, correct, delete or restrict the processing of
         your data. Most of it you can do in the app — view and correct it in
@@ -529,8 +632,8 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> Network requests</h2>
-      <p>Ruttin only ever talks to two places:</p>
+      <h2><span class="n">9</span> Network requests</h2>
+      <p>Ruttin only ever talks to three places:</p>
       <ul>
         <li><strong>Firebase</strong> — sign-in and sync.
           If you don't sign in, this traffic never happens at all</li>
@@ -538,11 +641,14 @@
           <strong>once, on first use</strong>. Google may see your IP address as part of
           that request; the request carries none of your Ruttin data. The brand
           typefaces ship inside the app and are never downloaded</li>
+        <li><strong>NVIDIA</strong> — the AI routine planner (section 5).
+          This happens <strong>only when you have added an API key and run the planner</strong>.
+          Without a key, the request never happens at all</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="n">9</span> Children</h2>
+      <h2><span class="n">10</span> Children</h2>
       <p>
         Ruttin is not directed at children under 14, and we do not knowingly
         collect personal information from children.
@@ -550,7 +656,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> Changes to this policy</h2>
+      <h2><span class="n">11</span> Changes to this policy</h2>
       <p>
         If this policy changes we will update this page and the date above. Any
         change that adds data collection will also be called out in the app's
@@ -559,7 +665,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> Company details and contact</h2>
+      <h2><span class="n">12</span> Company details and contact</h2>
       <dl class="biz">
         <dt>Company</dt><dd>FIRSTPIP Inc. ((주)퍼스트핍)</dd>
         <dt>Business registration no.</dt><dd>788-87-02526</dd>
@@ -579,12 +685,12 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年8月6日 · バージョン 1.2</p>
+      <p class="updated">最終更新日 2026年8月20日 · バージョン 1.3</p>
     </header>
 
     <p class="lede">
       Ruttin は<strong>アカウントがなくてもすべての機能を使えます。</strong>
-      ログインしなければ、データが端末の外に出ることはありません。
+      ログインせず、AIプランナーも使わなければ、データが端末の外に出ることはありません。
       ログインすると、ルーティンと設定が<strong>機種を変えても引き継がれるように</strong>
       サーバーに保存されます。広告も、解析も、追跡もありません。
     </p>
@@ -652,9 +758,16 @@
       </ul>
       <p>
         読み取った値はその場で提案の根拠を計算するためだけに使い、
-        <strong>端末に保存することも、サーバーへ送ることもありません。</strong>
+        <strong>端末に保存することも、当社のサーバーへ送ることもありません。</strong>
         Ruttin がヘルスケアに<span class="none">書き込むことはありません</span>。
         サーバーに送られるのは、連携をオンにしているかどうかの状態だけです。
+      </p>
+      <p>
+        <strong>ひとつだけ例外があります。</strong>下記5番のAIルーティンプランナーで
+        <em>睡眠・歩数データも一緒に送る</em>をご自身でオンにした場合に限り、平均睡眠時間と
+        平均歩数が NVIDIA に送信されます。このスイッチは<strong>初期状態がオフ</strong>で、
+        端末ごとに個別にオンにする必要があります。オフのままなら、ヘルスケアのデータは
+        一切端末の外に出ません。
       </p>
       <p>
         許可しなくても AI プランナーを含むすべての機能を利用できます
@@ -665,7 +778,47 @@
     </section>
 
     <section>
-      <h2><span class="n">5</span> 委託と国外移転</h2>
+      <h2><span class="n">5</span> AIルーティンプランナー</h2>
+      <p>
+        AIルーティンプランナーは、<strong>ご自身の NVIDIA APIキーを入力した場合にのみ</strong>
+        動作します。キーがなければアプリ内蔵の固定提案に切り替わり、
+        <strong>通信は一切発生しません</strong>。
+      </p>
+      <p>キーを入れてプランナーを実行すると、次の内容が NVIDIA に送信されます。</p>
+      <ul>
+        <li>選んだ目標（例：ミラクルモーニング）</li>
+        <li>起床時刻と就寝時刻</li>
+        <li>アプリの言語設定</li>
+        <li>すでに作成済みのルーティンの<strong>名前</strong> — 同じものを重ねて提案しないためです。
+          時刻や達成履歴は送りません</li>
+        <li><em>睡眠・歩数データも一緒に送る</em>をオンにした場合に限り、平均睡眠時間と平均歩数</li>
+      </ul>
+      <p>
+        氏名・メールアドレス・利用者識別子・位置情報は
+        <span class="none">送信しません</span>。NVIDIA があなたを特定することはできません。
+      </p>
+      <p>
+        <strong>APIキーはこの端末の安全な保管領域（iOS キーチェーン）にのみ保存されます。</strong>
+        当社のサーバーには届かず、アカウント同期にも含まれません。機種を変えた場合は入力し直しが必要です。
+        <em>プロフィール &gt; AIキー &gt; キーを削除</em>からいつでも削除できます。
+      </p>
+      <dl class="biz">
+        <dt>移転先</dt><dd>NVIDIA Corporation</dd>
+        <dt>利用サービス</dt><dd>NVIDIA AI API（ルーティン提案の生成）</dd>
+        <dt>移転する項目</dt><dd>上記の内容</dd>
+        <dt>移転先の国</dt><dd>米国など、NVIDIA が運営するデータセンター</dd>
+        <dt>時期・方法</dt><dd>AIプランナーを実行したとき、暗号化された通信（TLS）で</dd>
+        <dt>保有期間</dt><dd>NVIDIA の方針によります。当社はこのリクエストの内容を保存しません</dd>
+      </dl>
+      <p>
+        リクエストは<strong>ご自身の NVIDIA 開発者アカウントの無料枠</strong>から差し引かれ、
+        利用量は NVIDIA で直接確認できます。送信された内容の取り扱いは
+        <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA のプライバシーポリシー</a>に従います。
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">6</span> 委託と国外移転</h2>
       <p>
         アカウントと同期は自社で運用せず、Google の Firebase を利用しています。
         1・2 番の情報は次のとおり国外へ移転されます。
@@ -691,7 +844,7 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 保存と削除</h2>
+      <h2><span class="n">7</span> 保存と削除</h2>
       <ul>
         <li><strong>端末内</strong> — アプリを削除すれば一緒に消えます。
           アプリ内では<em>プロフィール &gt; データをリセット</em>で消去できます</li>
@@ -710,7 +863,7 @@
     </section>
 
     <section>
-      <h2><span class="n">7</span> 利用者の権利</h2>
+      <h2><span class="n">8</span> 利用者の権利</h2>
       <p>
         いつでも開示・訂正・削除・処理の停止を求めることができます。
         ほとんどはアプリ内で完結します — 確認と訂正は<em>プロフィール</em>と各ルーティンの画面で、
@@ -725,8 +878,8 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 通信について</h2>
-      <p>Ruttin がインターネットを使うのは次の 2 か所だけです。</p>
+      <h2><span class="n">9</span> 通信について</h2>
+      <p>Ruttin がインターネットを使うのは次の 3 か所だけです。</p>
       <ul>
         <li><strong>Firebase</strong> — ログインと同期。
           ログインしなければ、この通信は一切発生しません</li>
@@ -734,11 +887,14 @@
           <strong>初回に一度だけ</strong>取得します。その際 Google に IP アドレスが
           伝わる可能性がありますが、この通信に Ruttin のデータは一切含まれません。
           ブランド書体はアプリに同梱しており、取得しません</li>
+        <li><strong>NVIDIA</strong> — AIルーティンプランナー（上記5番）。
+          <strong>APIキーを入力してプランナーを実行したときにのみ</strong>通信します。
+          キーがなければ、この通信は一切発生しません</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="n">9</span> お子さまの個人情報</h2>
+      <h2><span class="n">10</span> お子さまの個人情報</h2>
       <p>
         Ruttin は 14 歳未満のお子さまを対象としておらず、
         お子さまの個人情報を意図して取得することはありません。
@@ -746,7 +902,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> 本ポリシーの変更</h2>
+      <h2><span class="n">11</span> 本ポリシーの変更</h2>
       <p>
         内容を変更した場合は、このページと上部の最終更新日を改めます。
         取得する情報が増える変更については、アップデートの案内でもお知らせします。
@@ -754,7 +910,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 事業者情報・お問い合わせ</h2>
+      <h2><span class="n">12</span> 事業者情報・お問い合わせ</h2>
       <dl class="biz">
         <dt>商号</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>事業者登録番号</dt><dd>788-87-02526</dd>
@@ -774,12 +930,12 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年8月6日 · 版本 1.2</p>
+      <p class="updated">最后更新 2026年8月20日 · 版本 1.3</p>
     </header>
 
     <p class="lede">
       不注册账号也能<strong>使用 Ruttin 的全部功能。</strong>
-      不登录时，数据不会离开你的设备。
+      不登录、也不使用 AI 规划师时，数据不会离开你的设备。
       登录后，例行与设置会保存到服务器，<strong>换手机也能接着用。</strong>
       没有广告，没有分析，也不做追踪。
     </p>
@@ -846,9 +1002,15 @@
       </ul>
       <p>
         读取到的数值仅当场用于计算推荐依据，
-        <strong>既不保存在设备上，也不上传到服务器。</strong>
+        <strong>既不保存在设备上，也不上传到我们的服务器。</strong>
         Ruttin <span class="none">不会向「健康」写入任何内容</span>。
         上传到服务器的只有连接开关的开／关状态。
+      </p>
+      <p>
+        <strong>只有一个例外。</strong>如果你在下文第 5 条的 AI 例行规划师中
+        自行开启<em>同时发送睡眠和步数数据</em>，届时——也仅在那时——平均睡眠时长与
+        平均步数会发送给 NVIDIA。该开关<strong>默认关闭</strong>，且每台设备都要单独开启。
+        不开启的话，健康数据一个字也不会离开设备。
       </p>
       <p>
         即使不授权，你依然可以使用包括 AI 规划师在内的全部功能（此时用示例数值计算）。
@@ -857,7 +1019,45 @@
     </section>
 
     <section>
-      <h2><span class="n">5</span> 委托处理与跨境传输</h2>
+      <h2><span class="n">5</span> AI 例行规划师</h2>
+      <p>
+        AI 例行规划师<strong>只有在你自行填入 NVIDIA API 密钥后</strong>才会工作。
+        没有密钥时，应用改用内置的固定推荐，<strong>完全不会发生任何通信</strong>。
+      </p>
+      <p>填入密钥并运行规划师时，以下内容会发送给 NVIDIA：</p>
+      <ul>
+        <li>你选择的目标（例如「奇迹早晨」）</li>
+        <li>起床时间与就寝时间</li>
+        <li>应用的语言设置</li>
+        <li>你已创建例行的<strong>名称</strong> —— 用于避免重复推荐。时间与完成记录不会发送</li>
+        <li>仅在你开启<em>同时发送睡眠和步数数据</em>时：平均睡眠时长与平均每日步数</li>
+      </ul>
+      <p>
+        姓名、邮箱、用户标识符与位置<span class="none">不会发送</span>。
+        NVIDIA 无法得知你是谁。
+      </p>
+      <p>
+        <strong>API 密钥只保存在本机的安全存储（iOS 钥匙串）中。</strong>
+        不会上传到我们的服务器，也不包含在账号同步里。更换设备后需要重新填写。
+        你可以随时通过<em>个人页 &gt; AI 密钥 &gt; 删除密钥</em>清除。
+      </p>
+      <dl class="biz">
+        <dt>接收方</dt><dd>NVIDIA Corporation</dd>
+        <dt>使用服务</dt><dd>NVIDIA AI API（生成例行建议）</dd>
+        <dt>传输内容</dt><dd>上列各项</dd>
+        <dt>传输国家</dt><dd>美国等 NVIDIA 运营的数据中心</dd>
+        <dt>时点与方式</dt><dd>你运行 AI 规划师时，通过加密连接（TLS）</dd>
+        <dt>保存期限</dt><dd>依 NVIDIA 自身政策而定。我们不保存这些请求的内容</dd>
+      </dl>
+      <p>
+        请求从<strong>你自己的 NVIDIA 开发者账号的免费额度</strong>中扣除，用量可在 NVIDIA 直接查看。
+        NVIDIA 如何处理所发送的内容，适用
+        <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA 隐私政策</a>。
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">6</span> 委托处理与跨境传输</h2>
       <p>
         我们不自行运营账号与同步服务，而是使用 Google 的 Firebase。
         第 1、2 条的信息按下列方式传输至境外。
@@ -882,7 +1082,7 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 保存与删除</h2>
+      <h2><span class="n">7</span> 保存与删除</h2>
       <ul>
         <li><strong>设备上</strong> — 删除应用即一并删除。
           在应用内可通过<em>个人资料 &gt; 重置数据</em>清空</li>
@@ -899,7 +1099,7 @@
     </section>
 
     <section>
-      <h2><span class="n">7</span> 用户的权利</h2>
+      <h2><span class="n">8</span> 用户的权利</h2>
       <p>
         你可以随时要求查阅、更正、删除个人信息或限制其处理。
         大多数操作在应用内即可完成 — 查阅与更正见<em>个人资料</em>及各例行页面，
@@ -914,19 +1114,22 @@
     </section>
 
     <section>
-      <h2><span class="n">8</span> 网络请求</h2>
-      <p>Ruttin 只会与两个地方通信：</p>
+      <h2><span class="n">9</span> 网络请求</h2>
+      <p>Ruttin 只会与三个地方通信：</p>
       <ul>
         <li><strong>Firebase</strong> — 登录与同步。
           不登录时，完全不会产生这类通信</li>
         <li><strong>Google Fonts</strong> — 正文字体（Noto Sans）会在
           <strong>首次使用时下载一次</strong>。该请求可能让 Google 获知你的 IP 地址，
           但不会包含任何 Ruttin 的数据。品牌字体已随应用打包，不会下载</li>
+        <li><strong>NVIDIA</strong> — AI 例行规划师（上文第 5 条）。
+          <strong>只有在你填入 API 密钥并运行规划师时</strong>才会通信。
+          没有密钥时，完全不会产生这类请求</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="n">9</span> 儿童个人信息</h2>
+      <h2><span class="n">10</span> 儿童个人信息</h2>
       <p>
         Ruttin 并非面向 14 周岁以下儿童，
         我们也不会在知情的情况下收集儿童的个人信息。
@@ -934,7 +1137,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> 政策变更</h2>
+      <h2><span class="n">11</span> 政策变更</h2>
       <p>
         如有变更，我们会更新本页面及上方的最后更新日期。
         若变更涉及新增收集的信息，也会在应用更新说明中一并告知。
@@ -942,7 +1145,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 经营者信息与联系方式</h2>
+      <h2><span class="n">12</span> 经营者信息与联系方式</h2>
       <dl class="biz">
         <dt>公司名称</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>营业执照号</dt><dd>788-87-02526</dd>
