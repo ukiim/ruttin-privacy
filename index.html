@@ -192,16 +192,21 @@
     <button type="button" data-go="zh">简体中文</button>
   </nav>
 
-  <!-- ───────────────────────── 한국어 ───────────────────────── -->
+  <!--
+  v1.4 (2026-08-24) — 커뮤니티 신설분 + App Check(기기 증명) 공개.
+  빌드 11(커뮤니티)과 같은 날 배포한다. 라이브 반영: 2026-08-24.
+-->
+<!-- ───────────────────────── 한국어 ───────────────────────── -->
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 8월 20일 · 버전 1.3</p>
+      <p class="updated">최종 수정일 2026년 8월 24일 · 버전 1.4</p>
     </header>
 
     <p class="lede">
-      루띤은 <strong>계정 없이도 전부 쓸 수 있습니다.</strong>
-      로그인하지 않고 AI 플래너를 쓰지 않으면, 아무것도 기기 밖으로 나가지 않습니다.
+      루띤은 <strong>커뮤니티를 빼면 계정 없이도 전부 쓸 수 있습니다.</strong>
+      로그인하지 않고 AI 플래너를 쓰지 않으면,
+      <strong>여러분의 정보는</strong> 아무것도 기기 밖으로 나가지 않습니다.
       로그인하면 루틴과 설정이 <strong>기기를 바꿔도 이어지도록</strong> 서버에 저장됩니다.
       광고도, 분석도, 추적도 없습니다.
     </p>
@@ -238,6 +243,7 @@
         <li>기상 시간, 취침 시간, 선택한 목표</li>
         <li>앱에서 직접 입력한 표시 이름과 나이 (선택 사항)</li>
         <li>알림 사용 여부, 언어 설정, 건강 앱 연동 여부</li>
+        <li>커뮤니티를 쓴다면 — 닉네임과 커뮤니티 약관에 동의한 시각 (위 6번)</li>
       </ul>
       <p>
         같은 내용이 기기 안(UserDefaults)에도 남아, 인터넷이 없어도 앱이 그대로 돌아갑니다.
@@ -327,7 +333,41 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 처리 위탁과 국외 이전</h2>
+      <h2><span class="n">6</span> 커뮤니티 (모임 · 피드)</h2>
+      <p>
+        <strong>커뮤니티는 로그인해야 쓸 수 있고, 쓰기 전에 한 번 동의를 받습니다.</strong>
+        쓰지 않으면 아래 내용은 하나도 만들어지지 않습니다.
+      </p>
+      <p>여기서 만들어지는 것은 <strong>여러분이 직접 공개하기로 한 것</strong>뿐입니다.</p>
+      <ul>
+        <li><strong>닉네임</strong> — 커뮤니티에서 보이는 이름. 계정의 이메일이나 표시 이름과
+          <strong>따로</strong>이며, 저희가 자동으로 채우지 않습니다</li>
+        <li><strong>공유한 루틴 글</strong> — 제목과 고른 루틴(이름·시간·길이·아이콘). 닉네임과 함께 공개됩니다</li>
+        <li><strong>모임 참여</strong> — 어느 모임에 속해 있는지, 언제 들어왔는지</li>
+        <li><strong>주고받은 메시지</strong> — 모임 안에서만 보입니다. <strong>보관 기간은 30일이고, 지난 것은 지웁니다</strong></li>
+        <li><strong>차단 목록</strong> — 누구를 차단했는지. 기기가 아니라 계정에 딸려 저장되고,
+          <strong>상대에게는 알리지 않습니다</strong></li>
+      </ul>
+      <p>
+        모임에 들어가는 데 필요한 초대 코드는 무작위 6자리이고, 코드를 아는 사람만
+        들어올 수 있습니다. 목표별 공개 모임은 누구나 들어올 수 있습니다.
+        <strong>무작위로 낯선 사람과 연결해 주는 기능은 없습니다.</strong>
+      </p>
+      <p>
+        <strong>신고</strong>하면 신고 대상과 사유, 그리고 <strong>신고 시점의 글·메시지 원문</strong>이
+        저희에게 전달됩니다(작성자가 지워도 확인할 수 있게 하기 위해서입니다).
+        저희는 이 기록을 <strong>신고를 확인하는 목적으로만</strong> 보고,
+        <strong>보관 기간은 90일이고, 지난 것은 지웁니다.</strong> 접수한 신고는 24시간 안에 확인합니다.
+      </p>
+      <p>
+        커뮤니티에 올린 글과 메시지는 <strong>다른 이용자에게 보입니다.</strong>
+        공개를 원하지 않는 내용은 올리지 마세요. 올린 뒤에도 글은 언제든 지울 수 있고,
+        내가 쓴 메시지도 길게 눌러 지울 수 있습니다.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">7</span> 처리 위탁과 국외 이전</h2>
       <p>
         계정과 동기화를 직접 운영하지 않고 Google의 Firebase를 씁니다.
         1·2번의 정보는 아래와 같이 국외로 이전됩니다.
@@ -346,31 +386,38 @@
         보냅니다. 여기에는 여러분이 누구인지, 어떤 루틴을 쓰는지가 들어 있지 않습니다.
       </p>
       <p>
-        이 밖에는 <span class="none">아무에게도</span> 판매·공유·제공하지 않습니다.
+        <strong>여러분이 직접 공개하기로 한 것(위 6번)</strong>을 빼면, 이 밖에는
+        <span class="none">아무에게도</span> 판매·공유·제공하지 않습니다.
         광고나 프로파일링에 쓰지 않습니다.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> 보관과 삭제</h2>
+      <h2><span class="n">8</span> 보관과 삭제</h2>
       <ul>
         <li><strong>기기 안</strong> — 앱을 삭제하면 함께 사라집니다.
           앱 안에서는 <em>프로필 &gt; 데이터 초기화</em>로 지울 수 있습니다</li>
         <li><strong>서버</strong> — <em>프로필 &gt; 계정 삭제</em>를 누르면 서버의 루틴 문서와
           로그인 계정이 <strong>함께</strong> 지워집니다. 되돌릴 수 없습니다</li>
+        <li><strong>커뮤니티</strong> — 계정을 지우면 <strong>올린 글, 내가 쓴 메시지,
+          닉네임 프로필, 차단 목록, 모임 참여가 모두 함께 지워집니다.</strong>
+          다른 참여자가 쓴 메시지는 그들의 기록이라 그대로 남습니다(보관 기간 30일).
+          이미 접수된 신고 기록은 확인이 끝날 때까지 남고 90일 뒤 지워집니다</li>
         <li><strong>로그아웃</strong>만 하면 서버의 사본은 남습니다.
           다시 로그인하면 그대로 돌아옵니다</li>
       </ul>
       <p>
-        전송 구간은 TLS로 암호화되고, 서버 규칙상
-        <strong>자기 문서가 아니면 누구도 읽거나 쓸 수 없습니다.</strong>
-        저희가 여러분의 루틴을 들여다보지 않습니다.
+        전송 구간은 TLS로 암호화되고, 서버 규칙상 <strong>여러분의 루틴 문서는
+        본인이 아니면 누구도 읽거나 쓸 수 없습니다.</strong>
+        커뮤니티에 직접 올린 것은 예외입니다 — 글은 모두에게, 모임 메시지는 그 모임
+        참여자에게 보입니다(위 6번). 저희는 여러분의 루틴을 들여다보지 않고,
+        커뮤니티 기록은 <strong>신고된 것에 한해</strong> 확인을 위해 봅니다.
         삭제 요청은 즉시 반영되며, 별도의 사본을 만들어 두지 않습니다.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">8</span> 이용자의 권리</h2>
+      <h2><span class="n">9</span> 이용자의 권리</h2>
       <p>
         언제든지 열람·정정·삭제·처리정지를 요구할 수 있습니다.
         대부분은 앱 안에서 바로 됩니다 — 열람과 정정은 <em>프로필</em>과 각 루틴 화면에서,
@@ -385,11 +432,17 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 네트워크 통신</h2>
-      <p>루띤이 인터넷을 쓰는 곳은 세 군데뿐입니다.</p>
+      <h2><span class="n">10</span> 네트워크 통신</h2>
+      <p>루띤이 인터넷을 쓰는 곳은 네 군데뿐입니다.</p>
       <ul>
         <li><strong>Firebase</strong> — 로그인과 동기화.
           로그인하지 않으면 이 통신은 아예 일어나지 않습니다</li>
+        <li><strong>기기 증명 (App Check)</strong> — <strong>앱을 켤 때</strong>,
+          이 앱이 진짜 루띤인지를 Apple이 확인해 주는 짧은 증명을 받아 Firebase에
+          전달합니다. 커뮤니티를 자동 프로그램의 도배·사칭으로부터 지키기 위한
+          것입니다. <strong>로그인하지 않아도 일어나며</strong>, 이 증명에는
+          여러분이 누구인지도, 무엇을 하는지도 들어 있지 않습니다 —
+          "이 기기의 이 앱이 정품이다"만 담깁니다</li>
         <li><strong>Google Fonts</strong> — 본문 서체(Noto Sans)를 <strong>처음 한 번</strong>
           내려받습니다. 이때 Google에 IP 주소가 전달될 수 있고, 이 요청에는 루띤이 가진
           어떤 정보도 담기지 않습니다. 브랜드 서체는 앱에 포함돼 있어 내려받지 않습니다</li>
@@ -400,7 +453,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> 아동의 개인정보</h2>
+      <h2><span class="n">11</span> 아동의 개인정보</h2>
       <p>
         루띤은 만 14세 미만 아동을 대상으로 하지 않으며,
         아동의 개인정보를 알면서 수집하지 않습니다.
@@ -408,7 +461,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 방침 변경</h2>
+      <h2><span class="n">12</span> 방침 변경</h2>
       <p>
         내용이 바뀌면 이 페이지를 갱신하고 위의 최종 수정일을 고칩니다.
         수집 항목이 늘어나는 변경은 앱 업데이트 안내에서도 함께 알려드립니다.
@@ -416,7 +469,7 @@
     </section>
 
     <section>
-      <h2><span class="n">12</span> 사업자 정보 및 문의</h2>
+      <h2><span class="n">13</span> 사업자 정보 및 문의</h2>
       <dl class="biz">
         <dt>상호</dt><dd>(주)퍼스트핍</dd>
         <dt>사업자등록번호</dt><dd>788-87-02526</dd>
@@ -435,12 +488,13 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 20 August 2026 · Version 1.3</p>
+      <p class="updated">Last updated 24 August 2026 · Version 1.4</p>
     </header>
 
     <p class="lede">
-      You can use <strong>all of Ruttin without an account.</strong>
-      If you don't sign in and don't use the AI planner, nothing leaves your device.
+      You can use <strong>all of Ruttin without an account, except the community.</strong>
+      If you don't sign in and don't use the AI planner,
+      <strong>none of your information</strong> leaves your device.
       If you do sign in, your routines and settings are stored on a server so they
       <strong>follow you to a new phone</strong>. No ads, no analytics, no tracking.
     </p>
@@ -478,6 +532,7 @@
         <li>Your wake time, sleep time and chosen goal</li>
         <li>The display name and age you type into the app (both optional)</li>
         <li>Notification toggle, language setting and whether Health is connected</li>
+        <li>If you use the community — your nickname and when you accepted the community terms (section 6)</li>
       </ul>
       <p>
         The same data also stays on your device (UserDefaults), so the app keeps working
@@ -571,7 +626,43 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> Processors and international transfer</h2>
+      <h2><span class="n">6</span> Community (groups and feed)</h2>
+      <p>
+        <strong>The community requires an account, and you agree to the community terms once
+        before using it.</strong> If you never use it, none of the data below is created.
+      </p>
+      <p>What is created here is only <strong>what you choose to make public</strong>.</p>
+      <ul>
+        <li><strong>Nickname</strong> — the name shown in the community. It is
+          <strong>separate</strong> from your account email or display name, and we never fill it in for you</li>
+        <li><strong>Shared routine posts</strong> — the title and the routines you picked
+          (name, time, length, icon). Published together with your nickname</li>
+        <li><strong>Group membership</strong> — which groups you are in and when you joined</li>
+        <li><strong>Messages</strong> — visible only inside the group.
+          <strong>Kept for 30 days, then deleted</strong></li>
+        <li><strong>Block list</strong> — who you blocked. Stored with your account rather than on the
+          device, and <strong>never revealed to the person you blocked</strong></li>
+      </ul>
+      <p>
+        Invite codes are six random characters, and only someone who has the code can join.
+        Goal rooms are open to anyone. <strong>There is no feature that pairs you with a
+        random stranger.</strong>
+      </p>
+      <p>
+        When you <strong>report</strong> something, we receive the target, the reason, and
+        <strong>a copy of the post or message as it was at that moment</strong> (so it can still be
+        reviewed if the author deletes it). We look at this <strong>only to handle the report</strong>,
+        and it is <strong>kept for 90 days, then deleted.</strong> Reports are reviewed within 24 hours.
+      </p>
+      <p>
+        Posts and messages in the community <strong>are visible to other users.</strong> Don't post
+        anything you don't want to be public. You can delete your posts at any time, and delete your
+        own messages by long-pressing them.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">7</span> Processors and international transfer</h2>
       <p>
         We do not run accounts or sync ourselves — we use Google's Firebase.
         The data in sections 1 and 2 is transferred abroad as follows.
@@ -590,32 +681,40 @@
         so on. That data says nothing about who you are or what routines you keep.
       </p>
       <p>
-        Beyond that we sell, share or hand your data to <span class="none">no one</span>.
+        Apart from <strong>what you choose to make public yourself (section 6)</strong>, we sell,
+        share or hand your data to <span class="none">no one</span>.
         It is never used for advertising or profiling.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> Retention and deletion</h2>
+      <h2><span class="n">8</span> Retention and deletion</h2>
       <ul>
         <li><strong>On your device</strong> — deleting the app deletes it with the app.
           Inside the app you can wipe it from <em>Profile &gt; Reset data</em></li>
         <li><strong>On the server</strong> — <em>Profile &gt; Delete account</em> erases
           <strong>both</strong> your routine document and your sign-in account.
           This cannot be undone</li>
+        <li><strong>Community</strong> — deleting your account also deletes <strong>your posts,
+          the messages you wrote, your nickname profile, your block list and your group
+          memberships.</strong> Messages written by other members are their record and stay
+          (kept for 30 days, then deleted). Reports already filed remain until they have
+          been handled, and are deleted after 90 days</li>
         <li><strong>Signing out</strong> alone leaves the server copy in place.
           Sign back in and it comes straight back</li>
       </ul>
       <p>
-        Data is encrypted in transit with TLS, and the server rules mean
-        <strong>nobody can read or write a document that isn't their own.</strong>
-        We do not look at your routines. Deletions take effect immediately and we keep
+        Data is encrypted in transit with TLS, and the server rules mean <strong>nobody but you
+        can read or write your routine document.</strong> What you post to the community is the
+        exception — posts are visible to everyone and group messages to that group's members
+        (section 6). We do not look at your routines, and we look at community content
+        <strong>only when it has been reported.</strong> Deletions take effect immediately and we keep
         no separate copy.
       </p>
     </section>
 
     <section>
-      <h2><span class="n">8</span> Your rights</h2>
+      <h2><span class="n">9</span> Your rights</h2>
       <p>
         You may ask at any time to see, correct, delete or restrict the processing of
         your data. Most of it you can do in the app — view and correct it in
@@ -632,11 +731,17 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> Network requests</h2>
-      <p>Ruttin only ever talks to three places:</p>
+      <h2><span class="n">10</span> Network requests</h2>
+      <p>Ruttin only ever talks to four places:</p>
       <ul>
         <li><strong>Firebase</strong> — sign-in and sync.
           If you don't sign in, this traffic never happens at all</li>
+        <li><strong>Device attestation (App Check)</strong> — <strong>when the app
+          starts</strong>, Apple vouches that this really is Ruttin, and that short
+          attestation is passed to Firebase. It protects the community from bots
+          impersonating the app. <strong>This happens even when you are signed
+          out</strong>, and the attestation says nothing about who you are or what
+          you do — only that this app on this device is genuine</li>
         <li><strong>Google Fonts</strong> — the body typeface (Noto Sans) is downloaded
           <strong>once, on first use</strong>. Google may see your IP address as part of
           that request; the request carries none of your Ruttin data. The brand
@@ -648,7 +753,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> Children</h2>
+      <h2><span class="n">11</span> Children</h2>
       <p>
         Ruttin is not directed at children under 14, and we do not knowingly
         collect personal information from children.
@@ -656,7 +761,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> Changes to this policy</h2>
+      <h2><span class="n">12</span> Changes to this policy</h2>
       <p>
         If this policy changes we will update this page and the date above. Any
         change that adds data collection will also be called out in the app's
@@ -665,7 +770,7 @@
     </section>
 
     <section>
-      <h2><span class="n">12</span> Company details and contact</h2>
+      <h2><span class="n">13</span> Company details and contact</h2>
       <dl class="biz">
         <dt>Company</dt><dd>FIRSTPIP Inc. ((주)퍼스트핍)</dd>
         <dt>Business registration no.</dt><dd>788-87-02526</dd>
@@ -685,12 +790,13 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年8月20日 · バージョン 1.3</p>
+      <p class="updated">最終更新日 2026年8月24日 · バージョン 1.4</p>
     </header>
 
     <p class="lede">
-      Ruttin は<strong>アカウントがなくてもすべての機能を使えます。</strong>
-      ログインせず、AIプランナーも使わなければ、データが端末の外に出ることはありません。
+      Ruttin は<strong>コミュニティを除けば、アカウントがなくても使えます。</strong>
+      ログインせず、AIプランナーも使わなければ、
+      <strong>あなたの情報</strong>が端末の外に出ることはありません。
       ログインすると、ルーティンと設定が<strong>機種を変えても引き継がれるように</strong>
       サーバーに保存されます。広告も、解析も、追跡もありません。
     </p>
@@ -727,6 +833,7 @@
         <li>起床時刻、就寝時刻、選んだ目標</li>
         <li>アプリに入力した表示名と年齢（任意）</li>
         <li>通知の設定、言語の設定、ヘルスケア連携の有無</li>
+        <li>コミュニティを使う場合 — ニックネームと、コミュニティ規約に同意した時刻（上の6番）</li>
       </ul>
       <p>
         同じ内容は端末内（UserDefaults）にも残るので、オフラインでもそのまま使えます。
@@ -818,7 +925,40 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 委託と国外移転</h2>
+      <h2><span class="n">6</span> コミュニティ（グループ・フィード）</h2>
+      <p>
+        <strong>コミュニティはログインが必要で、使う前に一度だけ同意をいただきます。</strong>
+        使わなければ、以下のデータは一切作られません。
+      </p>
+      <p>ここで作られるのは<strong>ご自身が公開すると決めたもの</strong>だけです。</p>
+      <ul>
+        <li><strong>ニックネーム</strong> — コミュニティで表示される名前。アカウントのメールや表示名とは
+          <strong>別</strong>で、こちらで自動的に入れることはありません</li>
+        <li><strong>共有したルーティンの投稿</strong> — タイトルと選んだルーティン（名前・時刻・長さ・アイコン）。ニックネームとともに公開されます</li>
+        <li><strong>グループへの参加</strong> — どのグループに入っているか、いつ入ったか</li>
+        <li><strong>やり取りしたメッセージ</strong> — グループの中だけで見えます。<strong>保存期間は30日で、過ぎたものは削除します</strong></li>
+        <li><strong>ブロックした相手</strong> — 端末ではなくアカウントに保存され、<strong>相手には知らせません</strong></li>
+      </ul>
+      <p>
+        招待コードはランダムな6文字で、コードを知っている人だけが参加できます。
+        目標別のオープンなグループは誰でも参加できます。
+        <strong>見知らぬ相手とランダムにつなぐ機能はありません。</strong>
+      </p>
+      <p>
+        <strong>通報</strong>すると、対象と理由、そして<strong>通報時点の投稿・メッセージの原文</strong>が
+        こちらに送られます（投稿者が削除しても確認できるようにするためです）。
+        これは<strong>通報の対応のためだけ</strong>に確認し、<strong>保存期間は90日で、過ぎたものは削除します。</strong>
+        通報は24時間以内に確認します。
+      </p>
+      <p>
+        コミュニティへの投稿とメッセージは<strong>他の利用者に見えます。</strong>
+        公開したくない内容は書かないでください。投稿はいつでも削除でき、
+        自分のメッセージも長押しで削除できます。
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">7</span> 委託と国外移転</h2>
       <p>
         アカウントと同期は自社で運用せず、Google の Firebase を利用しています。
         1・2 番の情報は次のとおり国外へ移転されます。
@@ -838,32 +978,41 @@
         含まれません。
       </p>
       <p>
-        これ以外に<span class="none">誰にも</span>販売・共有・提供しません。
+        <strong>ご自身が公開すると決めたもの（上の6番）</strong>を除き、これ以外に
+        <span class="none">誰にも</span>販売・共有・提供しません。
         広告やプロファイリングには使いません。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> 保存と削除</h2>
+      <h2><span class="n">8</span> 保存と削除</h2>
       <ul>
         <li><strong>端末内</strong> — アプリを削除すれば一緒に消えます。
           アプリ内では<em>プロフィール &gt; データをリセット</em>で消去できます</li>
         <li><strong>サーバー</strong> — <em>プロフィール &gt; アカウント削除</em>を押すと、
           ルーティンのドキュメントとログインアカウントが<strong>まとめて</strong>削除されます。
           元に戻すことはできません</li>
+        <li><strong>コミュニティ</strong> — アカウントを削除すると、<strong>投稿、自分が書いた
+          メッセージ、ニックネームのプロフィール、ブロック一覧、グループへの参加が
+          すべて一緒に削除されます。</strong>他の参加者が書いたメッセージは
+          その方の記録なので残ります（保存期間30日）。
+          すでに受け付けた通報の記録は対応が終わるまで残り、90日後に削除されます</li>
         <li><strong>ログアウト</strong>だけではサーバー上の控えは残ります。
           再度ログインすればそのまま戻ります</li>
       </ul>
       <p>
-        通信は TLS で暗号化され、サーバーのルール上
-        <strong>自分のドキュメント以外は誰も読み書きできません。</strong>
-        当方があなたのルーティンを覗くことはありません。
+        通信は TLS で暗号化され、サーバーのルール上<strong>あなたのルーティンの
+        ドキュメントは本人以外は誰も読み書きできません。</strong>
+        コミュニティに自分で投稿したものは例外です — 投稿は全員に、グループの
+        メッセージはそのグループの参加者に見えます（上の6番）。
+        当方があなたのルーティンを覗くことはなく、コミュニティの記録は
+        <strong>通報されたものに限り</strong>確認のために見ます。
         削除はすぐに反映され、別途の控えも保管しません。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">8</span> 利用者の権利</h2>
+      <h2><span class="n">9</span> 利用者の権利</h2>
       <p>
         いつでも開示・訂正・削除・処理の停止を求めることができます。
         ほとんどはアプリ内で完結します — 確認と訂正は<em>プロフィール</em>と各ルーティンの画面で、
@@ -878,11 +1027,17 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 通信について</h2>
-      <p>Ruttin がインターネットを使うのは次の 3 か所だけです。</p>
+      <h2><span class="n">10</span> 通信について</h2>
+      <p>Ruttin がインターネットを使うのは次の 4 か所だけです。</p>
       <ul>
         <li><strong>Firebase</strong> — ログインと同期。
           ログインしなければ、この通信は一切発生しません</li>
+        <li><strong>端末の証明 (App Check)</strong> — <strong>アプリ起動時</strong>に、
+          これが本物の Ruttin であることを Apple が保証する短い証明を受け取り、
+          Firebase に渡します。コミュニティを自動プログラムの荒らし・なりすましから
+          守るためのものです。<strong>ログインしていなくても発生します</strong>が、
+          この証明にあなたが誰かも、何をしているかも含まれません —
+          「この端末のこのアプリが正規品である」ことだけです</li>
         <li><strong>Google Fonts</strong> — 本文用の書体（Noto Sans）を
           <strong>初回に一度だけ</strong>取得します。その際 Google に IP アドレスが
           伝わる可能性がありますが、この通信に Ruttin のデータは一切含まれません。
@@ -894,7 +1049,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> お子さまの個人情報</h2>
+      <h2><span class="n">11</span> お子さまの個人情報</h2>
       <p>
         Ruttin は 14 歳未満のお子さまを対象としておらず、
         お子さまの個人情報を意図して取得することはありません。
@@ -902,7 +1057,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 本ポリシーの変更</h2>
+      <h2><span class="n">12</span> 本ポリシーの変更</h2>
       <p>
         内容を変更した場合は、このページと上部の最終更新日を改めます。
         取得する情報が増える変更については、アップデートの案内でもお知らせします。
@@ -910,7 +1065,7 @@
     </section>
 
     <section>
-      <h2><span class="n">12</span> 事業者情報・お問い合わせ</h2>
+      <h2><span class="n">13</span> 事業者情報・お問い合わせ</h2>
       <dl class="biz">
         <dt>商号</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>事業者登録番号</dt><dd>788-87-02526</dd>
@@ -930,12 +1085,12 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年8月20日 · 版本 1.3</p>
+      <p class="updated">最后更新 2026年8月24日 · 版本 1.4</p>
     </header>
 
     <p class="lede">
-      不注册账号也能<strong>使用 Ruttin 的全部功能。</strong>
-      不登录、也不使用 AI 规划师时，数据不会离开你的设备。
+      除社区外，<strong>不注册账号也能使用 Ruttin 的全部功能。</strong>
+      不登录、也不使用 AI 规划师时，<strong>你的信息</strong>不会离开你的设备。
       登录后，例行与设置会保存到服务器，<strong>换手机也能接着用。</strong>
       没有广告，没有分析，也不做追踪。
     </p>
@@ -971,6 +1126,7 @@
         <li>起床时间、就寝时间、所选目标</li>
         <li>你在应用中填写的昵称与年龄（均为选填）</li>
         <li>通知开关、语言设置、是否连接「健康」</li>
+        <li>如果使用社区 — 昵称，以及同意社区条款的时间（见上文第 6 节）</li>
       </ul>
       <p>
         同样的内容也保留在设备上（UserDefaults），因此离线时应用照常可用。
@@ -1057,7 +1213,36 @@
     </section>
 
     <section>
-      <h2><span class="n">6</span> 委托处理与跨境传输</h2>
+      <h2><span class="n">6</span> 社区（小组与动态）</h2>
+      <p>
+        <strong>社区需要登录，并在使用前确认一次同意。</strong>
+        如果你不使用，下列数据一条都不会产生。
+      </p>
+      <p>这里产生的只有<strong>你自己决定公开的内容</strong>。</p>
+      <ul>
+        <li><strong>昵称</strong> — 在社区中显示的名字。与账号邮箱或显示名<strong>相互独立</strong>，我们不会自动填入</li>
+        <li><strong>分享的例行帖子</strong> — 标题与所选例行（名称、时间、时长、图标），与昵称一起公开</li>
+        <li><strong>小组参与</strong> — 加入了哪些小组、何时加入</li>
+        <li><strong>收发的消息</strong> — 仅在小组内可见，<strong>保存 30 天后删除</strong></li>
+        <li><strong>屏蔽名单</strong> — 屏蔽了谁。保存在账号而非设备上，<strong>不会告知对方</strong></li>
+      </ul>
+      <p>
+        邀请码为随机 6 位，只有知道邀请码的人才能加入；按目标划分的公开小组则人人可加入。
+        <strong>我们没有把你与陌生人随机配对的功能。</strong>
+      </p>
+      <p>
+        <strong>举报</strong>时，我们会收到举报对象、理由，以及<strong>举报当时的原文</strong>
+        （以便作者删除后仍可核实）。我们<strong>仅为处理举报</strong>查看这些记录，
+        并<strong>保存 90 天后删除。</strong>举报会在 24 小时内处理。
+      </p>
+      <p>
+        社区中的帖子与消息<strong>对其他用户可见</strong>，请勿发布不希望公开的内容。
+        帖子可随时删除，自己的消息也可长按删除。
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="n">7</span> 委托处理与跨境传输</h2>
       <p>
         我们不自行运营账号与同步服务，而是使用 Google 的 Firebase。
         第 1、2 条的信息按下列方式传输至境外。
@@ -1076,30 +1261,36 @@
         这些信息不包含你的身份，也不包含你的例行内容。
       </p>
       <p>
-        除此之外，我们<span class="none">不向任何人</span>出售、共享或提供你的数据，
+        除<strong>你自己决定公开的内容（见上文第 6 节）</strong>外，我们
+        <span class="none">不向任何人</span>出售、共享或提供你的数据，
         也不用于广告或用户画像。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">7</span> 保存与删除</h2>
+      <h2><span class="n">8</span> 保存与删除</h2>
       <ul>
         <li><strong>设备上</strong> — 删除应用即一并删除。
           在应用内可通过<em>个人资料 &gt; 重置数据</em>清空</li>
         <li><strong>服务器上</strong> — 点击<em>个人资料 &gt; 删除账号</em>，
           会<strong>同时</strong>删除服务器上的例行文档与登录账号，且无法恢复</li>
+        <li><strong>社区</strong> — 删除账号时，<strong>你发布的帖子、你写的消息、昵称资料、
+          屏蔽名单与小组参与也会一并删除。</strong>其他成员写的消息属于他们的记录，
+          会保留（保存 30 天后删除）。已提交的举报记录会保留至处理完成，并在 90 天后删除</li>
         <li>仅<strong>退出登录</strong>时，服务器上的副本仍然保留，
           重新登录即可恢复</li>
       </ul>
       <p>
-        传输过程使用 TLS 加密，且服务器规则规定
-        <strong>任何人都无法读写不属于自己的文档。</strong>
-        我们不会查看你的例行内容。删除请求立即生效，我们也不另存副本。
+        传输过程使用 TLS 加密，且服务器规则规定<strong>除本人外，任何人都无法读写
+        你的例行文档。</strong>你自己发布到社区的内容除外——帖子对所有人可见，
+        小组消息对该小组成员可见（见上文第 6 节）。我们不会查看你的例行内容，
+        社区记录<strong>仅在被举报时</strong>才会查看。
+        删除请求立即生效，我们也不另存副本。
       </p>
     </section>
 
     <section>
-      <h2><span class="n">8</span> 用户的权利</h2>
+      <h2><span class="n">9</span> 用户的权利</h2>
       <p>
         你可以随时要求查阅、更正、删除个人信息或限制其处理。
         大多数操作在应用内即可完成 — 查阅与更正见<em>个人资料</em>及各例行页面，
@@ -1114,11 +1305,15 @@
     </section>
 
     <section>
-      <h2><span class="n">9</span> 网络请求</h2>
-      <p>Ruttin 只会与三个地方通信：</p>
+      <h2><span class="n">10</span> 网络请求</h2>
+      <p>Ruttin 只会与四个地方通信：</p>
       <ul>
         <li><strong>Firebase</strong> — 登录与同步。
           不登录时，完全不会产生这类通信</li>
+        <li><strong>设备验证 (App Check)</strong> — <strong>启动应用时</strong>，
+          由 Apple 证明这确实是正版 Ruttin，并将该短证明转交 Firebase，
+          用于保护社区不被自动程序刷屏或冒充。<strong>未登录时也会发生</strong>，
+          该证明不包含你是谁、在做什么 — 只表明「此设备上的这个应用是正版」</li>
         <li><strong>Google Fonts</strong> — 正文字体（Noto Sans）会在
           <strong>首次使用时下载一次</strong>。该请求可能让 Google 获知你的 IP 地址，
           但不会包含任何 Ruttin 的数据。品牌字体已随应用打包，不会下载</li>
@@ -1129,7 +1324,7 @@
     </section>
 
     <section>
-      <h2><span class="n">10</span> 儿童个人信息</h2>
+      <h2><span class="n">11</span> 儿童个人信息</h2>
       <p>
         Ruttin 并非面向 14 周岁以下儿童，
         我们也不会在知情的情况下收集儿童的个人信息。
@@ -1137,7 +1332,7 @@
     </section>
 
     <section>
-      <h2><span class="n">11</span> 政策变更</h2>
+      <h2><span class="n">12</span> 政策变更</h2>
       <p>
         如有变更，我们会更新本页面及上方的最后更新日期。
         若变更涉及新增收集的信息，也会在应用更新说明中一并告知。
@@ -1145,7 +1340,7 @@
     </section>
 
     <section>
-      <h2><span class="n">12</span> 经营者信息与联系方式</h2>
+      <h2><span class="n">13</span> 经营者信息与联系方式</h2>
       <dl class="biz">
         <dt>公司名称</dt><dd>FIRSTPIP Inc.（(주)퍼스트핍）</dd>
         <dt>营业执照号</dt><dd>788-87-02526</dd>
