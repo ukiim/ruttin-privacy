@@ -1,0 +1,472 @@
+<!doctype html>
+<!--
+  루띤 커뮤니티 이용약관 — 이 파일이 원본이다.
+
+  공개 URL(예정): https://ukiim.github.io/ruttin-privacy/terms.html
+  배포 저장소: https://github.com/ukiim/ruttin-privacy (terms.html로 복사해 push)
+
+  커뮤니티(빌드 11 트랙) 출시와 함께 배포한다.
+  시행일은 배포일(2026-08-24)로 확정했다 — 커뮤니티는 빌드 11이 심사를 통과해야
+  쓸 수 있으므로, 약관이 먼저 살아 있어도 해가 없고 "언제부터 적용되는지"가
+  분명해진다. 방침 v1.4와 같은 날 배포한다.
+
+  법적 근거 둘: App Store 심사 1.2(UGC — EULA 동의 + 무관용 명시 요구),
+  정보통신망법 제44조의2 제3항(임시조치 절차의 약관 사전 명시 의무).
+  5조(무관용)와 6조(신고·임시조치)가 그 대응 조항이다.
+
+  1.0 (시행일 2026-08-24) — 최초 작성. 커뮤니티(모임·채팅·피드) 신설에 맞춤.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>루띤 커뮤니티 이용약관 · Ruttin Community Terms</title>
+<meta name="description" content="루띤 커뮤니티(모임·채팅·피드) 이용약관. Ruttin community terms of service.">
+<style>
+  :root {
+    --page: #F4F4F2;
+    --surface: #FFFFFF;
+    --ink: #3A2E2A;
+    --sub: #7A6A62;
+    --muted: #A6968B;
+    --accent: #FF6B5B;
+    --accent-deep: #F5483B;
+    --line: rgba(58, 46, 42, .10);
+    --dot: rgba(58, 46, 42, .07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #1E1A19;
+      --surface: #2A2422;
+      --ink: #F2ECE8;
+      --sub: #BFAFA6;
+      --muted: #8C7C73;
+      --line: rgba(242, 236, 232, .12);
+      --dot: rgba(242, 236, 232, .06);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--page);
+    background-image: radial-gradient(var(--dot) 1.5px, transparent 1.6px);
+    background-size: 22px 22px;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Noto Sans KR", "Hiragino Sans", "Noto Sans JP", "PingFang SC",
+      "Noto Sans SC", "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 20px 72px; }
+
+  /* 언어 전환 — 앱 온보딩의 스티커 pill과 같은 모양 */
+  nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+  nav button {
+    font: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 2.5px solid var(--surface);
+    background: var(--surface);
+    color: var(--sub);
+    cursor: pointer;
+    box-shadow: 0 0 0 1.5px var(--line), 0 3px 0 rgba(58, 46, 42, .10);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  nav button:hover { transform: translateY(-1px); }
+  nav button[aria-current="true"] {
+    color: var(--accent-deep);
+    box-shadow: 0 0 0 2px var(--accent), 0 3px 0 rgba(245, 72, 59, .22);
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6vw, 34px);
+    line-height: 1.25;
+    margin: 0 0 6px;
+    letter-spacing: -.02em;
+  }
+  header .updated { color: var(--muted); font-size: 13px; font-weight: 700; margin: 0 0 22px; }
+
+  /* 요약 카드 — 가장 중요한 한 문단 */
+  .lede {
+    background: var(--surface);
+    border: 3px solid var(--surface);
+    border-radius: 20px;
+    padding: 20px 22px;
+    margin: 0 0 34px;
+    box-shadow: 0 0 0 1.5px var(--line), 0 5px 0 rgba(58, 46, 42, .12);
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .lede strong { color: var(--accent-deep); }
+
+  section { margin: 0 0 30px; }
+  h2 {
+    font-size: 19px;
+    margin: 0 0 10px;
+    letter-spacing: -.01em;
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+  }
+  h2 .n {
+    flex: none;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 999px;
+    min-width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    transform: translateY(-1px);
+  }
+  p { margin: 0 0 12px; color: var(--sub); }
+  ul { margin: 0 0 12px; padding-left: 20px; color: var(--sub); }
+  li { margin-bottom: 5px; }
+  strong { color: var(--ink); }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9em;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1px 5px;
+  }
+  a { color: var(--accent-deep); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+  .none {
+    display: inline-block;
+    font-weight: 800;
+    color: var(--accent-deep);
+    background: rgba(255, 107, 91, .12);
+    border-radius: 8px;
+    padding: 1px 9px;
+  }
+
+  /* 라벨/값 2열 — 사업자 정보와 국외 이전 표. 좁은 화면에서는 1열로 접힌다 */
+  .biz {
+    margin: 0 0 12px;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 18px;
+    color: var(--sub);
+  }
+  .biz dt { font-weight: 700; color: var(--ink); }
+  .biz dd { margin: 0; }
+  @media (max-width: 460px) {
+    .biz { grid-template-columns: 1fr; gap: 0; }
+    .biz dt { margin-top: 10px; font-size: 13px; color: var(--muted); }
+    .biz dt:first-child { margin-top: 0; }
+  }
+
+  hr { border: 0; border-top: 2px dashed var(--line); margin: 34px 0; }
+  footer { color: var(--muted); font-size: 13px; }
+
+  [data-lang] { display: none; }
+  [data-lang].on { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav aria-label="Language">
+    <button type="button" data-go="ko" aria-current="true">한국어</button>
+    <button type="button" data-go="en">English</button>
+    <button type="button" data-go="ja">日本語</button>
+    <button type="button" data-go="zh">简体中文</button>
+  </nav>
+
+  <!-- ───────────────────────── 한국어 ───────────────────────── -->
+    <main data-lang="ko" class="on">
+    <header>
+      <h1>루띤 커뮤니티 이용약관</h1>
+      <p class="updated">버전 1.0 · 시행일 2026년 8월 24일</p>
+    </header>
+    <p class="lede">커뮤니티는 서로를 존중할 때만 굴러갑니다. 루띤은 <strong>불쾌한 콘텐츠와 학대 행위에 어떠한 관용도 없으며</strong>, 위반하는 글과 계정은 사전 통지 없이 제거될 수 있습니다. 신고는 24시간 안에 확인합니다.</p>
+    <section>
+      <h2><span class="n">1</span> 목적과 정의</h2>
+      <p>이 약관은 (주)퍼스트핍(이하 "회사")이 제공하는 루띤 앱의 커뮤니티 기능(모임, 채팅, 루틴 공유 피드 — 이하 "커뮤니티") 이용 조건을 정합니다. "모임"은 초대 코드 또는 목표별 공개방으로 모이는 공간을, "게시물"은 이용자가 커뮤니티에 올리는 모든 글·메시지·공유 루틴을 말합니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">2</span> 약관의 게시와 변경</h2>
+      <p>이 약관은 이 페이지에 게시합니다. 내용이 바뀌면 페이지를 갱신하고, 이용자에게 불리한 변경은 앱 안에서 미리 알립니다. 변경 후 커뮤니티를 계속 쓰면 변경에 동의한 것으로 봅니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">3</span> 이용 자격</h2>
+      <p>커뮤니티는 <strong>만 14세 이상</strong>이며 루띤 계정으로 로그인한 이용자만 쓸 수 있습니다. 커뮤니티를 처음 시작할 때 이 약관에 동의해야 하며, 동의하지 않아도 루띤의 다른 기능은 전부 쓸 수 있습니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">4</span> 계정과 닉네임</h2>
+      <p>커뮤니티에서 여러분은 직접 정한 닉네임으로만 표시됩니다. 타인을 사칭하거나 오인하게 하는 닉네임은 쓸 수 없습니다. 닉네임과 여러분이 올린 게시물은 같은 모임의 구성원(피드 게시물은 로그인한 이용자)에게 보입니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">5</span> 금지 행위 — 무관용</h2>
+      <p>다음은 금지되며, 회사는 <strong>불쾌한 콘텐츠와 학대 행위에 어떠한 관용도 없이(zero tolerance)</strong> 위반 게시물을 사전 통지 없이 삭제하고 해당 계정의 이용을 제한할 수 있습니다: ① 법령 위반 정보 ② 명예훼손·모욕·협박·괴롭힘 ③ 음란물·성적 대상화 ④ 폭력 조장, 혐오 표현 ⑤ 스팸·광고·도배 ⑥ 타인의 개인정보 게시 ⑦ 타인의 지식재산 침해 ⑧ 서비스의 정상 운영을 방해하는 행위.</p>
+    </section>
+    <section>
+      <h2><span class="n">6</span> 신고와 임시조치</h2>
+      <p>모든 게시물에는 신고 버튼이 있으며, 접수된 신고는 <strong>24시간 안에 확인</strong>해 위반 시 삭제·이용 제한 조치를 합니다. 사생활 침해나 명예훼손 등 권리침해를 주장하는 분이 삭제 또는 반박내용의 게재를 요청하면, 정보통신망법 제44조의2에 따라 지체 없이 삭제·임시조치(최장 30일)를 하고 신청인과 게시자에게 알립니다. 게시자는 같은 경로로 이의를 제기할 수 있습니다. 문의·신고: <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></p>
+    </section>
+    <section>
+      <h2><span class="n">7</span> 차단</h2>
+      <p>다른 이용자를 차단하면 그 사람의 게시물과 메시지가 내 화면에서 보이지 않습니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">8</span> 게시물의 권리</h2>
+      <p>게시물의 저작권은 작성자에게 있습니다. 작성자는 회사가 서비스 운영·표시에 필요한 범위에서 게시물을 사용하는 것을 허락합니다. 공유한 루틴을 다른 이용자가 자기 시간표에 복사해 쓰는 것은 이 기능의 본래 용도입니다. <strong>계정을 삭제하면 여러분이 올린 게시물과 직접 쓴 메시지는 함께 삭제됩니다.</strong> 다른 참여자가 쓴 메시지는 그분들의 게시물이라 남으며, 모임 메시지는 30일이 지나면 자동으로 삭제됩니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">9</span> 운영자의 권한</h2>
+      <p>회사는 이 약관을 위반한 게시물의 삭제, 모임의 해산, 커뮤니티 이용 제한을 할 수 있습니다. 커뮤니티 운영상 필요한 경우(남용, 시스템 한도 초과 등) 기능 일부 또는 전부를 일시 중단할 수 있습니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">10</span> 서비스의 변경·중단과 책임</h2>
+      <p>커뮤니티는 무료로 제공되며, 회사는 기능을 변경하거나 종료할 수 있습니다(중요 변경은 미리 알립니다). 회사는 이용자 간 상호작용에서 생긴 분쟁의 당사자가 아니며, 무료 서비스의 성질상 법이 허용하는 범위에서 책임이 제한됩니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">11</span> 준거법과 관할</h2>
+      <p>이 약관은 대한민국 법을 따르며, 분쟁은 민사소송법에 따른 관할 법원에서 다룹니다.</p>
+    </section>
+    <section>
+      <h2><span class="n">12</span> 사업자 정보와 연락처</h2>
+      <dl class="biz">
+        <dt>상호</dt><dd>(주)퍼스트핍</dd>
+        <dt>사업자등록번호</dt><dd>788-87-02526</dd>
+        <dt>주소</dt><dd>마포구 와우산로 105, 5층 428호</dd>
+        <dt>연락처</dt><dd><a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></dd>
+      </dl>
+      <p>부칙 — 이 약관은 커뮤니티 기능 공개일부터 시행합니다.</p>
+    </section>
+  </main>
+
+  <main data-lang="en">
+    <header>
+      <h1>Ruttin Community Terms</h1>
+      <p class="updated">Version 1.0 · Effective 24 August 2026</p>
+    </header>
+    <p class="lede">A community only works with mutual respect. Ruttin has <strong>zero tolerance for objectionable content and abusive behaviour</strong> — violating posts and accounts can be removed without notice. Reports are reviewed within 24 hours.</p>
+    <section>
+      <h2><span class="n">1</span> Purpose and definitions</h2>
+      <p>These terms govern the community features of the Ruttin app (groups, chat, and the routine-sharing feed — the "Community") provided by Firstpip Inc. (the "Company"). A "group" is a space joined by invite code or a public goal room; "content" means anything a user posts — messages, feed posts, shared routines.</p>
+    </section>
+    <section>
+      <h2><span class="n">2</span> Posting and changes</h2>
+      <p>These terms are published on this page. When they change, this page is updated, and changes unfavourable to users are announced in the app in advance. Continuing to use the Community after a change constitutes acceptance.</p>
+    </section>
+    <section>
+      <h2><span class="n">3</span> Eligibility</h2>
+      <p>The Community is available only to users <strong>aged 14 or over</strong> who are signed in to a Ruttin account. You must agree to these terms when first entering the Community. Everything else in Ruttin works without agreeing.</p>
+    </section>
+    <section>
+      <h2><span class="n">4</span> Accounts and nicknames</h2>
+      <p>In the Community you appear only under a nickname you choose. Nicknames that impersonate or mislead are not allowed. Your nickname and content are visible to members of the same group (feed posts: to signed-in users).</p>
+    </section>
+    <section>
+      <h2><span class="n">5</span> Prohibited conduct — zero tolerance</h2>
+      <p>The following are prohibited. The Company has <strong>zero tolerance for objectionable content and abusive users</strong> and may remove violating content and restrict accounts without prior notice: (1) unlawful information (2) defamation, insults, threats, harassment (3) sexual content or sexualisation (4) incitement to violence, hate speech (5) spam, ads, flooding (6) posting the personal information of others (7) infringement of the intellectual property of others (8) interference with normal operation of the service.</p>
+    </section>
+    <section>
+      <h2><span class="n">6</span> Reports and interim measures</h2>
+      <p>Every piece of content has a report button; reports are <strong>reviewed within 24 hours</strong>, with removal and account restriction for violations. Where someone claims a rights violation (privacy, defamation) and requests removal or a rebuttal, we take down or temporarily block the content without delay (up to 30 days) under Article 44-2 of the Korean Network Act, notifying both the requester and the poster. The poster may object through the same channel. Contact: <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></p>
+    </section>
+    <section>
+      <h2><span class="n">7</span> Blocking</h2>
+      <p>Blocking another user hides their posts and messages from your view.</p>
+    </section>
+    <section>
+      <h2><span class="n">8</span> Rights in content</h2>
+      <p>Copyright in content stays with its author. The author grants the Company a licence to use the content as needed to operate and display the service. Other users copying a shared routine into their own timetable is the intended use of that feature. <strong>Deleting your account also deletes the content you posted and the messages you wrote.</strong> Messages written by other members are their content and remain; group messages are deleted automatically after 30 days.</p>
+    </section>
+    <section>
+      <h2><span class="n">9</span> Operator authority</h2>
+      <p>The Company may remove violating content, dissolve groups, and restrict Community access. Where operation requires it (abuse, system limits), the Company may temporarily suspend some or all Community features.</p>
+    </section>
+    <section>
+      <h2><span class="n">10</span> Changes, discontinuation, liability</h2>
+      <p>The Community is provided free of charge; the Company may change or discontinue it (material changes are announced in advance). The Company is not a party to disputes between users, and liability is limited to the extent permitted by law for a free service.</p>
+    </section>
+    <section>
+      <h2><span class="n">11</span> Governing law</h2>
+      <p>These terms are governed by the laws of the Republic of Korea; disputes are heard by the competent court under the Civil Procedure Act.</p>
+    </section>
+    <section>
+      <h2><span class="n">12</span> Company details and contact</h2>
+      <dl class="biz">
+        <dt>Company</dt><dd>Firstpip Inc.</dd>
+        <dt>Business registration</dt><dd>788-87-02526</dd>
+        <dt>Address</dt><dd>5F #428, 105 Wausan-ro, Mapo-gu, Seoul</dd>
+        <dt>Contact</dt><dd><a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></dd>
+      </dl>
+      <p>Addendum — these terms take effect on the day the Community launches.</p>
+    </section>
+  </main>
+
+  <main data-lang="ja">
+    <header>
+      <h1>Ruttin コミュニティ利用規約</h1>
+      <p class="updated">バージョン 1.0 · 施行日 2026年8月24日</p>
+    </header>
+    <p class="lede">コミュニティはお互いの尊重があってこそ成り立ちます。Ruttin は<strong>不快なコンテンツと迷惑行為を一切容認せず</strong>、違反する投稿とアカウントは予告なく削除されることがあります。通報は24時間以内に確認します。</p>
+    <section>
+      <h2><span class="n">1</span> 目的と定義</h2>
+      <p>本規約は、Firstpip Inc.（以下「当社」）が提供する Ruttin アプリのコミュニティ機能（グループ、チャット、ルーティン共有フィード — 以下「コミュニティ」）の利用条件を定めます。「グループ」は招待コードまたは目標別公開ルームで集まる場を、「投稿」は利用者がコミュニティに載せるすべての文章・メッセージ・共有ルーティンを指します。</p>
+    </section>
+    <section>
+      <h2><span class="n">2</span> 規約の掲示と変更</h2>
+      <p>本規約はこのページに掲示します。変更した場合はページを更新し、利用者に不利な変更はアプリ内で事前に告知します。変更後もコミュニティを使い続けた場合、変更に同意したものとみなします。</p>
+    </section>
+    <section>
+      <h2><span class="n">3</span> 利用資格</h2>
+      <p>コミュニティは<strong>14歳以上</strong>で、Ruttin アカウントにログインした利用者のみ使えます。初めてコミュニティを開くときに本規約への同意が必要です。同意しなくても、Ruttin の他の機能はすべて使えます。</p>
+    </section>
+    <section>
+      <h2><span class="n">4</span> アカウントとニックネーム</h2>
+      <p>コミュニティでは、自分で決めたニックネームだけが表示されます。他人へのなりすましや誤認させるニックネームは使えません。ニックネームと投稿は同じグループの構成員（フィード投稿はログイン中の利用者）に表示されます。</p>
+    </section>
+    <section>
+      <h2><span class="n">5</span> 禁止行為 — 一切容認しません</h2>
+      <p>次の行為は禁止です。当社は<strong>不快なコンテンツと迷惑利用者を一切容認せず（zero tolerance）</strong>、違反投稿の予告なき削除とアカウントの利用制限を行うことがあります: ① 法令違反の情報 ② 名誉毀損・侮辱・脅迫・嫌がらせ ③ わいせつ物・性的対象化 ④ 暴力の助長、ヘイトスピーチ ⑤ スパム・広告・連投 ⑥ 他人の個人情報の掲載 ⑦ 他人の知的財産の侵害 ⑧ サービスの正常な運営を妨げる行為。</p>
+    </section>
+    <section>
+      <h2><span class="n">6</span> 通報と暫定措置</h2>
+      <p>すべての投稿に通報ボタンがあり、通報は<strong>24時間以内に確認</strong>し、違反があれば削除・利用制限を行います。プライバシー侵害や名誉毀損などの権利侵害を主張する方が削除等を求めた場合、韓国情報通信網法第44条の2に基づき遅滞なく削除・暫定措置（最長30日）を行い、申請者と投稿者に通知します。投稿者は同じ窓口で異議を申し立てられます。連絡先: <a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></p>
+    </section>
+    <section>
+      <h2><span class="n">7</span> ブロック</h2>
+      <p>他の利用者をブロックすると、その人の投稿とメッセージが自分の画面に表示されなくなります。</p>
+    </section>
+    <section>
+      <h2><span class="n">8</span> 投稿の権利</h2>
+      <p>投稿の著作権は作成者にあります。作成者は、サービスの運営・表示に必要な範囲で当社が投稿を使用することを許諾します。共有されたルーティンを他の利用者が自分の時間割にコピーして使うことは、この機能本来の用途です。<strong>アカウントを削除すると、投稿した内容と自分が書いたメッセージも一緒に削除されます。</strong>他の参加者が書いたメッセージはその方の投稿なので残り、グループのメッセージは30日で自動的に削除されます。</p>
+    </section>
+    <section>
+      <h2><span class="n">9</span> 運営者の権限</h2>
+      <p>当社は、本規約に違反する投稿の削除、グループの解散、コミュニティ利用の制限を行えます。運営上必要な場合（濫用、システム上限超過など）、機能の一部または全部を一時停止することがあります。</p>
+    </section>
+    <section>
+      <h2><span class="n">10</span> サービスの変更・終了と責任</h2>
+      <p>コミュニティは無料で提供され、当社は機能を変更・終了することがあります（重要な変更は事前に告知します）。当社は利用者間のやり取りから生じた紛争の当事者ではなく、無料サービスの性質上、法の許す範囲で責任が制限されます。</p>
+    </section>
+    <section>
+      <h2><span class="n">11</span> 準拠法と管轄</h2>
+      <p>本規約は大韓民国法に準拠し、紛争は民事訴訟法に定める管轄裁判所で扱います。</p>
+    </section>
+    <section>
+      <h2><span class="n">12</span> 事業者情報・お問い合わせ</h2>
+      <dl class="biz">
+        <dt>社名</dt><dd>Firstpip Inc.</dd>
+        <dt>事業者登録番号</dt><dd>788-87-02526</dd>
+        <dt>住所</dt><dd>ソウル特別市麻浦区ワウ山路105、5階428号</dd>
+        <dt>連絡先</dt><dd><a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></dd>
+      </dl>
+      <p>付則 — 本規約はコミュニティ機能の公開日から施行します。</p>
+    </section>
+  </main>
+
+  <main data-lang="zh">
+    <header>
+      <h1>Ruttin 社区使用条款</h1>
+      <p class="updated">版本 1.0 · 生效日 2026年8月24日</p>
+    </header>
+    <p class="lede">社区只有在互相尊重时才能运转。Ruttin <strong>对令人不适的内容和滥用行为零容忍</strong>——违规内容和账号可能在不另行通知的情况下被移除。举报会在 24 小时内得到确认。</p>
+    <section>
+      <h2><span class="n">1</span> 目的与定义</h2>
+      <p>本条款约定 Firstpip Inc.（以下称"公司"）提供的 Ruttin 应用社区功能（小组、聊天、例行分享动态——以下称"社区"）的使用条件。"小组"指通过邀请码或目标公开房间聚集的空间；"内容"指用户在社区发布的一切文字、消息与分享的例行。</p>
+    </section>
+    <section>
+      <h2><span class="n">2</span> 条款的公示与变更</h2>
+      <p>本条款公示于本页面。内容变更时会更新本页，对用户不利的变更会提前在应用内公告。变更后继续使用社区，视为同意变更。</p>
+    </section>
+    <section>
+      <h2><span class="n">3</span> 使用资格</h2>
+      <p>社区仅面向<strong>年满 14 周岁</strong>且已登录 Ruttin 账号的用户。首次进入社区时须同意本条款；不同意也可以使用 Ruttin 的其他全部功能。</p>
+    </section>
+    <section>
+      <h2><span class="n">4</span> 账号与昵称</h2>
+      <p>在社区中，你只会以自己设定的昵称出现。不得使用冒充他人或引人误认的昵称。你的昵称与内容对同一小组的成员可见（动态帖子对已登录用户可见）。</p>
+    </section>
+    <section>
+      <h2><span class="n">5</span> 禁止行为——零容忍</h2>
+      <p>以下行为被禁止。公司<strong>对令人不适的内容和滥用用户零容忍（zero tolerance）</strong>，可不经通知删除违规内容并限制相关账号：① 违法信息 ② 诽谤、侮辱、威胁、骚扰 ③ 色情内容或性化表达 ④ 煽动暴力、仇恨言论 ⑤ 垃圾信息、广告、刷屏 ⑥ 发布他人个人信息 ⑦ 侵犯他人知识产权 ⑧ 干扰服务正常运营的行为。</p>
+    </section>
+    <section>
+      <h2><span class="n">6</span> 举报与临时措施</h2>
+      <p>每条内容都有举报按钮；举报会在 <strong>24 小时内确认</strong>，违规内容将被删除并限制账号。当有人主张隐私或名誉等权利受侵害并请求删除时，我们将依据韩国《信息通信网法》第 44 条之 2 及时删除或临时屏蔽（最长 30 天），并通知申请人与发布者。发布者可通过同一渠道提出异议。联系：<a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></p>
+    </section>
+    <section>
+      <h2><span class="n">7</span> 屏蔽</h2>
+      <p>屏蔽其他用户后，其内容与消息不再出现在你的画面中。</p>
+    </section>
+    <section>
+      <h2><span class="n">8</span> 内容的权利</h2>
+      <p>内容的著作权归作者所有。作者许可公司在运营与展示服务所需的范围内使用内容。其他用户将分享的例行复制到自己的时间表，正是该功能的本来用途。<strong>删除账号时，你发布的内容与自己写的消息也会一并删除。</strong>其他成员写的消息属于他们的内容，会保留；小组消息将在 30 天后自动删除。</p>
+    </section>
+    <section>
+      <h2><span class="n">9</span> 运营者的权限</h2>
+      <p>公司可删除违反本条款的内容、解散小组、限制社区使用。运营需要时（滥用、系统限额等），可暂停部分或全部社区功能。</p>
+    </section>
+    <section>
+      <h2><span class="n">10</span> 服务的变更、终止与责任</h2>
+      <p>社区免费提供；公司可能变更或终止功能（重大变更会提前公告）。公司不是用户之间纠纷的当事方，且在法律允许的范围内，对免费服务的责任受到限制。</p>
+    </section>
+    <section>
+      <h2><span class="n">11</span> 适用法律与管辖</h2>
+      <p>本条款适用大韩民国法律；争议由民事诉讼法规定的管辖法院处理。</p>
+    </section>
+    <section>
+      <h2><span class="n">12</span> 经营者信息与联系方式</h2>
+      <dl class="biz">
+        <dt>公司</dt><dd>Firstpip Inc.</dd>
+        <dt>营业执照编号</dt><dd>788-87-02526</dd>
+        <dt>地址</dt><dd>首尔市麻浦区卧牛山路105，5层428号</dd>
+        <dt>联系方式</dt><dd><a href="mailto:admin@firstpip.co.kr">admin@firstpip.co.kr</a></dd>
+      </dl>
+      <p>附则——本条款自社区功能公开之日起施行。</p>
+    </section>
+  </main>
+
+
+</div>
+
+<script>
+  // 언어 전환. ?lang=en 또는 #en 으로 바로 열 수 있게 해 두면
+  // App Store Connect의 언어별 링크에 그대로 쓸 수 있다.
+  const HTML_LANG = { ko: 'ko', en: 'en', ja: 'ja', zh: 'zh-Hans' };
+
+  function show(code) {
+    if (!HTML_LANG[code]) code = 'ko';
+    document.querySelectorAll('[data-lang]').forEach((el) => {
+      el.classList.toggle('on', el.dataset.lang === code);
+    });
+    document.querySelectorAll('nav button').forEach((b) => {
+      b.setAttribute('aria-current', String(b.dataset.go === code));
+    });
+    document.documentElement.lang = HTML_LANG[code];
+  }
+
+  document.querySelectorAll('nav button').forEach((b) => {
+    b.addEventListener('click', () => {
+      show(b.dataset.go);
+      history.replaceState(null, '', '#' + b.dataset.go);
+    });
+  });
+
+  const fromUrl =
+    new URLSearchParams(location.search).get('lang') ||
+    location.hash.replace('#', '');
+  // 지정이 없으면 브라우저 언어를 따른다.
+  show(fromUrl || (navigator.language || 'ko').slice(0, 2));
+</script>
+</body>
+</html>
