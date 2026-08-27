@@ -8,6 +8,15 @@
   고칠 때는 이 파일을 고친 뒤 배포 저장소의 index.html로 복사해 push 한다.
   코드가 하는 일이 바뀌면(수집 항목·수탁사·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
 
+  1.5 (2026-08-25) — AI 플래너가 **사용자 키(BYOK)에서 우리가 제공하는 서비스로**
+  바뀌었다. 5절에서 "직접 키를 넣어야 한다"·"키는 기기 키체인에만 둔다"를 걷어내고,
+  "실행할 때만 통신한다"로 다시 썼다. 10절의 NVIDIA 항목도 같이 고쳤다.
+  **수면·걸음은 이제 NVIDIA로 보내지 않는다** — 동의 토글이 있던 화면을 빼면서
+  동의를 철회할 길이 없어졌기 때문이다(끌 수 없는 전송은 하지 않는다).
+  Apple 건강에서 읽는 것 자체는 그대로이고, 앱 안 분석에만 쓴다.
+
+  1.4 (2026-08-24) — 커뮤니티 신설분 + App Check(기기 증명) 공개.
+
   1.3 (2026-08-20) — AI 루틴 플래너가 NVIDIA AI API를 호출하게 되면서 5절을 신설하고
   이후 절 번호를 하나씩 밀었다. 건강 데이터 절(4)에 "예외" 문단을 더했다 —
   사용자가 직접 켠 경우에만 수면·걸음이 NVIDIA로 나간다. API 키는 기기
@@ -200,7 +209,7 @@
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 8월 24일 · 버전 1.4</p>
+      <p class="updated">최종 수정일 2026년 8월 25일 · 버전 1.5</p>
     </header>
 
     <p class="lede">
@@ -295,27 +304,25 @@
     <section>
       <h2><span class="n">5</span> AI 루틴 플래너</h2>
       <p>
-        AI 루틴 플래너는 <strong>여러분이 직접 NVIDIA API 키를 넣었을 때만</strong>
-        동작합니다. 키가 없으면 앱에 들어 있는 고정 추천으로 대신하며, 이때는
-        <strong>아무 통신도 일어나지 않습니다</strong>.
+        AI 루틴 플래너는 저희가 제공하는 기능입니다. <strong>여러분이 플래너를
+        실행할 때만</strong> 통신이 일어나고, 실행하지 않으면 아무것도 나가지 않습니다.
+        연결이 안 되거나 응답이 늦으면 앱에 들어 있는 고정 추천으로 대신합니다.
       </p>
-      <p>키를 넣고 플래너를 실행하면 다음이 NVIDIA로 전송됩니다.</p>
+      <p>플래너를 실행하면 다음이 NVIDIA로 전송됩니다.</p>
       <ul>
         <li>선택한 목표 (예: 미라클 모닝)</li>
         <li>기상 시간과 취침 시간</li>
         <li>앱 언어 설정</li>
         <li>이미 만들어 둔 루틴의 <strong>이름</strong> — 같은 것을 또 제안하지 않으려는
           용도입니다. 시각과 완료 이력은 보내지 않습니다</li>
-        <li><em>수면·걸음 데이터도 함께 보내기</em>를 켠 경우에만, 평균 수면 시간과 평균 걸음 수</li>
       </ul>
+      <p>
+        <strong>수면·걸음 데이터는 보내지 않습니다.</strong> Apple 건강에서 읽은 값은
+        앱 안에서 분석하는 데만 쓰고, 이 요청에는 담기지 않습니다.
+      </p>
       <p>
         이름·이메일·사용자 식별자·위치는 <span class="none">보내지 않습니다</span>.
         NVIDIA는 여러분이 누구인지 알 수 없습니다.
-      </p>
-      <p>
-        <strong>API 키는 이 기기의 보안 저장소(iOS 키체인)에만 저장됩니다.</strong>
-        저희 서버로 올라가지 않고, 계정 동기화에도 들어가지 않습니다. 기기를 바꾸면
-        다시 넣어야 합니다. <em>프로필 &gt; AI 키 &gt; 키 지우기</em>로 언제든 지울 수 있습니다.
       </p>
       <dl class="biz">
         <dt>이전받는 자</dt><dd>NVIDIA Corporation</dd>
@@ -326,8 +333,7 @@
         <dt>보유·이용 기간</dt><dd>NVIDIA의 방침에 따릅니다. 저희는 이 요청의 내용을 저장하지 않습니다</dd>
       </dl>
       <p>
-        요청은 <strong>여러분의 NVIDIA 개발자 계정의 무료 사용량</strong>에서 차감되며,
-        사용량은 NVIDIA에서 직접 확인할 수 있습니다. 전송된 내용을 NVIDIA가 어떻게 다루는지는
+        전송된 내용을 NVIDIA가 어떻게 다루는지는
         <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA 개인정보 보호 정책</a>을 따릅니다.
       </p>
     </section>
@@ -447,8 +453,8 @@
           내려받습니다. 이때 Google에 IP 주소가 전달될 수 있고, 이 요청에는 루띤이 가진
           어떤 정보도 담기지 않습니다. 브랜드 서체는 앱에 포함돼 있어 내려받지 않습니다</li>
         <li><strong>NVIDIA</strong> — AI 루틴 플래너(위 5번).
-          <strong>여러분이 API 키를 넣고 플래너를 실행할 때만</strong> 통신합니다.
-          키가 없으면 이 통신은 아예 일어나지 않습니다</li>
+          <strong>여러분이 플래너를 실행할 때만</strong> 통신합니다.
+          실행하지 않으면 이 통신은 아예 일어나지 않습니다</li>
       </ul>
     </section>
 
@@ -488,7 +494,7 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 24 August 2026 · Version 1.4</p>
+      <p class="updated">Last updated 25 August 2026 · Version 1.5</p>
     </header>
 
     <p class="lede">
@@ -586,29 +592,26 @@
     <section>
       <h2><span class="n">5</span> AI routine planner</h2>
       <p>
-        The AI routine planner only works if <strong>you add your own free NVIDIA API key</strong>.
-        Without a key the app falls back to its built-in suggestions, and
-        <strong>no request is made at all</strong>.
+        The AI routine planner is a feature we provide. A request is made
+        <strong>only when you run the planner</strong>; if you never run it, nothing
+        leaves your device. If the request fails or is slow, the app falls back to its
+        built-in suggestions.
       </p>
-      <p>With a key in place, running the planner sends the following to NVIDIA:</p>
+      <p>Running the planner sends the following to NVIDIA:</p>
       <ul>
         <li>The goal you picked (for example, Miracle morning)</li>
         <li>Your wake time and bedtime</li>
         <li>Your app language</li>
         <li>The <strong>names</strong> of routines you already have — so it doesn't suggest
           the same ones again. Times and completion history are not sent</li>
-        <li>Only if you turned on <em>Also send sleep and step data</em>: your average
-          sleep minutes and average daily steps</li>
       </ul>
+      <p>
+        <strong>Sleep and step data are not sent.</strong> What we read from Apple Health
+        is used for analysis inside the app only and is never part of this request.
+      </p>
       <p>
         Your name, email, user identifier and location are
         <span class="none">not sent</span>. NVIDIA cannot tell who you are.
-      </p>
-      <p>
-        <strong>The API key is stored only in this device's secure storage (the iOS Keychain).</strong>
-        It never reaches our servers and is not part of account sync. Switching phones means
-        entering it again. You can remove it any time from
-        <em>Profile &gt; AI key &gt; Remove key</em>.
       </p>
       <dl class="biz">
         <dt>Recipient</dt><dd>NVIDIA Corporation</dd>
@@ -619,8 +622,7 @@
         <dt>Retention</dt><dd>Per NVIDIA's own policy. We do not store the contents of these requests</dd>
       </dl>
       <p>
-        Requests draw on <strong>the free quota of your own NVIDIA developer account</strong>,
-        and you can see usage there directly. How NVIDIA handles what is sent is governed by the
+        How NVIDIA handles what is sent is governed by the
         <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA privacy policy</a>.
       </p>
     </section>
@@ -747,8 +749,8 @@
           that request; the request carries none of your Ruttin data. The brand
           typefaces ship inside the app and are never downloaded</li>
         <li><strong>NVIDIA</strong> — the AI routine planner (section 5).
-          This happens <strong>only when you have added an API key and run the planner</strong>.
-          Without a key, the request never happens at all</li>
+          This happens <strong>only when you run the planner</strong>.
+          If you never run it, the request never happens at all</li>
       </ul>
     </section>
 
@@ -790,7 +792,7 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年8月24日 · バージョン 1.4</p>
+      <p class="updated">最終更新日 2026年8月25日 · バージョン 1.5</p>
     </header>
 
     <p class="lede">
@@ -887,27 +889,25 @@
     <section>
       <h2><span class="n">5</span> AIルーティンプランナー</h2>
       <p>
-        AIルーティンプランナーは、<strong>ご自身の NVIDIA APIキーを入力した場合にのみ</strong>
-        動作します。キーがなければアプリ内蔵の固定提案に切り替わり、
-        <strong>通信は一切発生しません</strong>。
+        AIルーティンプランナーは当社が提供する機能です。<strong>プランナーを実行したときにのみ</strong>
+        通信が発生し、実行しなければ何も端末の外に出ません。接続できない・応答が遅い場合は、
+        アプリ内蔵の固定提案に切り替わります。
       </p>
-      <p>キーを入れてプランナーを実行すると、次の内容が NVIDIA に送信されます。</p>
+      <p>プランナーを実行すると、次の内容が NVIDIA に送信されます。</p>
       <ul>
         <li>選んだ目標（例：ミラクルモーニング）</li>
         <li>起床時刻と就寝時刻</li>
         <li>アプリの言語設定</li>
         <li>すでに作成済みのルーティンの<strong>名前</strong> — 同じものを重ねて提案しないためです。
           時刻や達成履歴は送りません</li>
-        <li><em>睡眠・歩数データも一緒に送る</em>をオンにした場合に限り、平均睡眠時間と平均歩数</li>
       </ul>
+      <p>
+        <strong>睡眠・歩数データは送信しません。</strong>Apple ヘルスケアから読み取った値は
+        アプリ内での分析にのみ使い、この通信には含まれません。
+      </p>
       <p>
         氏名・メールアドレス・利用者識別子・位置情報は
         <span class="none">送信しません</span>。NVIDIA があなたを特定することはできません。
-      </p>
-      <p>
-        <strong>APIキーはこの端末の安全な保管領域（iOS キーチェーン）にのみ保存されます。</strong>
-        当社のサーバーには届かず、アカウント同期にも含まれません。機種を変えた場合は入力し直しが必要です。
-        <em>プロフィール &gt; AIキー &gt; キーを削除</em>からいつでも削除できます。
       </p>
       <dl class="biz">
         <dt>移転先</dt><dd>NVIDIA Corporation</dd>
@@ -918,8 +918,7 @@
         <dt>保有期間</dt><dd>NVIDIA の方針によります。当社はこのリクエストの内容を保存しません</dd>
       </dl>
       <p>
-        リクエストは<strong>ご自身の NVIDIA 開発者アカウントの無料枠</strong>から差し引かれ、
-        利用量は NVIDIA で直接確認できます。送信された内容の取り扱いは
+        送信された内容の取り扱いは
         <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA のプライバシーポリシー</a>に従います。
       </p>
     </section>
@@ -1043,8 +1042,8 @@
           伝わる可能性がありますが、この通信に Ruttin のデータは一切含まれません。
           ブランド書体はアプリに同梱しており、取得しません</li>
         <li><strong>NVIDIA</strong> — AIルーティンプランナー（上記5番）。
-          <strong>APIキーを入力してプランナーを実行したときにのみ</strong>通信します。
-          キーがなければ、この通信は一切発生しません</li>
+          <strong>プランナーを実行したときにのみ</strong>通信します。
+          実行しなければ、この通信は一切発生しません</li>
       </ul>
     </section>
 
@@ -1085,7 +1084,7 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年8月24日 · 版本 1.4</p>
+      <p class="updated">最后更新 2026年8月25日 · 版本 1.5</p>
     </header>
 
     <p class="lede">
@@ -1177,25 +1176,23 @@
     <section>
       <h2><span class="n">5</span> AI 例行规划师</h2>
       <p>
-        AI 例行规划师<strong>只有在你自行填入 NVIDIA API 密钥后</strong>才会工作。
-        没有密钥时，应用改用内置的固定推荐，<strong>完全不会发生任何通信</strong>。
+        AI 例行规划师是我们提供的功能。<strong>只有在你运行规划师时</strong>才会通信；
+        不运行就不会有任何内容离开设备。若连接失败或响应过慢，应用会改用内置的固定推荐。
       </p>
-      <p>填入密钥并运行规划师时，以下内容会发送给 NVIDIA：</p>
+      <p>运行规划师时，以下内容会发送给 NVIDIA：</p>
       <ul>
         <li>你选择的目标（例如「奇迹早晨」）</li>
         <li>起床时间与就寝时间</li>
         <li>应用的语言设置</li>
         <li>你已创建例行的<strong>名称</strong> —— 用于避免重复推荐。时间与完成记录不会发送</li>
-        <li>仅在你开启<em>同时发送睡眠和步数数据</em>时：平均睡眠时长与平均每日步数</li>
       </ul>
+      <p>
+        <strong>不会发送睡眠和步数数据。</strong>从 Apple 健康读取的数值仅用于应用内分析，
+        不包含在此请求中。
+      </p>
       <p>
         姓名、邮箱、用户标识符与位置<span class="none">不会发送</span>。
         NVIDIA 无法得知你是谁。
-      </p>
-      <p>
-        <strong>API 密钥只保存在本机的安全存储（iOS 钥匙串）中。</strong>
-        不会上传到我们的服务器，也不包含在账号同步里。更换设备后需要重新填写。
-        你可以随时通过<em>个人页 &gt; AI 密钥 &gt; 删除密钥</em>清除。
       </p>
       <dl class="biz">
         <dt>接收方</dt><dd>NVIDIA Corporation</dd>
@@ -1206,7 +1203,7 @@
         <dt>保存期限</dt><dd>依 NVIDIA 自身政策而定。我们不保存这些请求的内容</dd>
       </dl>
       <p>
-        请求从<strong>你自己的 NVIDIA 开发者账号的免费额度</strong>中扣除，用量可在 NVIDIA 直接查看。
+
         NVIDIA 如何处理所发送的内容，适用
         <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">NVIDIA 隐私政策</a>。
       </p>
@@ -1318,8 +1315,8 @@
           <strong>首次使用时下载一次</strong>。该请求可能让 Google 获知你的 IP 地址，
           但不会包含任何 Ruttin 的数据。品牌字体已随应用打包，不会下载</li>
         <li><strong>NVIDIA</strong> — AI 例行规划师（上文第 5 条）。
-          <strong>只有在你填入 API 密钥并运行规划师时</strong>才会通信。
-          没有密钥时，完全不会产生这类请求</li>
+          <strong>只有在你运行规划师时</strong>才会通信。
+          不运行时，完全不会产生这类请求</li>
       </ul>
     </section>
 
