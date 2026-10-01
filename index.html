@@ -8,6 +8,12 @@
   고칠 때는 이 파일을 고친 뒤 배포 저장소의 index.html로 복사해 push 한다.
   코드가 하는 일이 바뀌면(수집 항목·수탁사·건강 데이터 쓰기·분석 SDK) 여기도 함께 고친다.
 
+  1.8 (2026-10-01) — 8절 커뮤니티 삭제에 "남는 두 가지"를 4개 언어로 밝혔다. 계정을
+                     지워도 ①내가 만든 모임(이름 + 더는 누구에게도 이어지지 않는
+                     만든 사람 식별자 — 멤버는 모임 문서를 읽으므로 "안 보인다"고
+                     쓰지 않았다) ②남의 글을 붙인 기록(copies/{uid} — 문서 이름이
+                     식별자, 내용은 시각뿐, 아무도 못 읽음)이 남는다. 둘을 지우게 하면 붙이기 횟수 부풀리기가
+                     다시 열리고 남은 멤버의 모임이 깨져서, 지우는 대신 밝힌다(#72).
   1.7 (2026-09-29) — 4절(건강 데이터)에 남아 있던 "예외" 문단을 4개 언어 모두에서
                      걷어냈다. 1.5에서 5절을 "수면·걸음은 보내지 않는다"로 고쳤는데
                      4절은 없어진 스위치를 켜면 NVIDIA로 나간다고 계속 말해서, 한
@@ -224,7 +230,7 @@
   <main data-lang="ko" class="on">
     <header>
       <h1>루띤 개인정보 처리방침</h1>
-      <p class="updated">최종 수정일 2026년 9월 29일 · 버전 1.7</p>
+      <p class="updated">최종 수정일 2026년 10월 1일 · 버전 1.8</p>
     </header>
 
     <p class="lede">
@@ -430,7 +436,12 @@
         <li><strong>커뮤니티</strong> — 계정을 지우면 <strong>올린 글, 내가 쓴 메시지,
           닉네임 프로필, 차단 목록, 모임 참여가 모두 함께 지워집니다.</strong>
           다른 참여자가 쓴 메시지는 그들의 기록이라 그대로 남습니다(보관 기간 30일).
-          이미 접수된 신고 기록은 확인이 끝날 때까지 남고 90일 뒤 지워집니다</li>
+          이미 접수된 신고 기록은 확인이 끝날 때까지 남고 90일 뒤 지워집니다.
+          다만 두 가지는 남습니다. <strong>내가 만든 모임</strong>은 다른 참여자가 계속
+          쓰므로 모임 이름과 함께 남고, 만든 사람 자리에는 계정이 지워져 더는 누구인지
+          알 수 없는 식별자만 남습니다. <strong>남의 글을 「내 시간표에 붙이기」 한
+          기록</strong>은 한 사람이 같은 글을 두 번 세지 못하게 막는 용도로 그 시각과
+          더는 누구인지 알 수 없는 식별자만 남으며, 누구에게도 보이지 않습니다. 둘 다 이름·이메일은 담기지 않습니다</li>
         <li><strong>로그아웃</strong>만 하면 서버의 사본은 남습니다.
           다시 로그인하면 그대로 돌아옵니다</li>
       </ul>
@@ -516,7 +527,7 @@
   <main data-lang="en">
     <header>
       <h1>Ruttin Privacy Policy</h1>
-      <p class="updated">Last updated 29 September 2026 · Version 1.7</p>
+      <p class="updated">Last updated 1 October 2026 · Version 1.8</p>
     </header>
 
     <p class="lede">
@@ -732,7 +743,14 @@
           the messages you wrote, your nickname profile, your block list and your group
           memberships.</strong> Messages written by other members are their record and stay
           (kept for 30 days, then deleted). Reports already filed remain until they have
-          been handled, and are deleted after 90 days</li>
+          been handled, and are deleted after 90 days. Two things do stay.
+          <strong>Groups you created</strong> keep running for their other members, so the
+          group and its name remain, with the creator field holding only an identifier that
+          no longer leads to anyone once your account is gone. <strong>A record that you
+          added someone else's post to your timetable</strong> keeps only the time and an
+          identifier that no longer leads to anyone, so one person can't count the same post
+          twice; nobody can see it. Neither contains your
+          name or email</li>
         <li><strong>Signing out</strong> alone leaves the server copy in place.
           Sign back in and it comes straight back</li>
       </ul>
@@ -823,7 +841,7 @@
   <main data-lang="ja">
     <header>
       <h1>Ruttin プライバシーポリシー</h1>
-      <p class="updated">最終更新日 2026年9月29日 · バージョン 1.7</p>
+      <p class="updated">最終更新日 2026年10月1日 · バージョン 1.8</p>
     </header>
 
     <p class="lede">
@@ -1032,7 +1050,12 @@
           メッセージ、ニックネームのプロフィール、ブロック一覧、グループへの参加が
           すべて一緒に削除されます。</strong>他の参加者が書いたメッセージは
           その方の記録なので残ります（保存期間30日）。
-          すでに受け付けた通報の記録は対応が終わるまで残り、90日後に削除されます</li>
+          すでに受け付けた通報の記録は対応が終わるまで残り、90日後に削除されます。
+          ただし、次の二つは残ります。<strong>ご自身が作ったグループ</strong>は他の参加者が
+          使い続けるため、グループ名とともに残り、作成者の欄にはアカウント削除後は誰にも
+          つながらない識別子だけが残ります。<strong>他の人の投稿を「時間割に追加」した
+          記録</strong>は、同じ投稿を一人が二度数えないためのもので、時刻と誰にもつながらない
+          識別子だけが残り、誰にも表示されません。どちらにもお名前やメールアドレスは含まれません</li>
         <li><strong>ログアウト</strong>だけではサーバー上の控えは残ります。
           再度ログインすればそのまま戻ります</li>
       </ul>
@@ -1121,7 +1144,7 @@
   <main data-lang="zh">
     <header>
       <h1>Ruttin 隐私政策</h1>
-      <p class="updated">最后更新 2026年9月29日 · 版本 1.7</p>
+      <p class="updated">最后更新 2026年10月1日 · 版本 1.8</p>
     </header>
 
     <p class="lede">
@@ -1315,7 +1338,11 @@
           会<strong>同时</strong>删除服务器上的例行文档与登录账号，且无法恢复</li>
         <li><strong>社区</strong> — 删除账号时，<strong>你发布的帖子、你写的消息、昵称资料、
           屏蔽名单与小组参与也会一并删除。</strong>其他成员写的消息属于他们的记录，
-          会保留（保存 30 天后删除）。已提交的举报记录会保留至处理完成，并在 90 天后删除</li>
+          会保留（保存 30 天后删除）。已提交的举报记录会保留至处理完成，并在 90 天后删除。
+          但有两项会保留：<strong>你创建的小组</strong>仍由其他成员使用，因此小组及其名称会保留，
+          创建者一栏只留下一个在账号删除后不再指向任何人的标识符；<strong>你把他人帖子
+          「添加到我的时间表」的记录</strong>只保留时间和不再指向任何人的标识符，用于防止同一人重复计数，任何人都看不到。
+          两者都不包含你的姓名或邮箱</li>
         <li>仅<strong>退出登录</strong>时，服务器上的副本仍然保留，
           重新登录即可恢复</li>
       </ul>
